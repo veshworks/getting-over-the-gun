@@ -2,27 +2,26 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8dsgl55i50l4"
-path.s3tc="res://.godot/imported/bullet_gun_no_shadow.webp-9ec9cb35a58887b4da6275be7f68da6a.s3tc.ctex"
+uid="uid://bncqep4ekfw5l"
+path="res://.godot/imported/white_pixel.png-d03f2cfeffeeb22385db4e3006a5e0ae.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bullet_gun_no_shadow.webp"
-dest_files=["res://.godot/imported/bullet_gun_no_shadow.webp-9ec9cb35a58887b4da6275be7f68da6a.s3tc.ctex"]
+source_file="res://entities/background/white_pixel.png"
+dest_files=["res://.godot/imported/white_pixel.png-d03f2cfeffeeb22385db4e3006a5e0ae.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -32,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1

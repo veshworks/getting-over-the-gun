@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bltpg75gmljqq"]
+
+[ext_resource type="Texture2D" uid="uid://b8dsgl55i50l4" path="res://entities/bullet/bullet_gun_no_shadow.webp" id="1_b72ma"]
+[ext_resource type="Script" path="res://entities/bullet/bullet.gd" id="2_8n4dv"]
+
+[node name="Bullet" type="Sprite2D"]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_b72ma")
+script = ExtResource("2_8n4dv")
+speed = 1600

@@ -1,3 +1,18 @@
-[gd_scene format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=5 format=3 uid="uid://btmi35wugb25k"]
+
+[ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
+[ext_resource type="PackedScene" uid="uid://cxemr1ehjdlgj" path="res://entities/floor/floor.tscn" id="1_m4gmm"]
+[ext_resource type="Script" path="res://entities/background/background.gd" id="2_f2s5r"]
+[ext_resource type="PackedScene" uid="uid://b0wyaiqvpg84j" path="res://entities/player/player.tscn" id="2_kikoq"]
 
 [node name="World" type="Node2D"]
+
+[node name="CanvasLayer" parent="." instance=ExtResource("1_cym6x")]
+script = ExtResource("2_f2s5r")
+
+[node name="Floor" parent="." instance=ExtResource("1_m4gmm")]
+position = Vector2(425, 647)
+
+[node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
+position = Vector2(334, 210)
+background = NodePath("../CanvasLayer")
