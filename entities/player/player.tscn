@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0wyaiqvpg84j"]
+
+[ext_resource type="Texture2D" uid="uid://dxgsxptxnej2a" path="res://entities/player/pistol_gun_no_shadow.webp" id="1_o145b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lb3f5"]
+radius = 17.0
+
+[node name="Player" type="RigidBody2D"]
+
+[node name="PistolGunNoShadow" type="Sprite2D" parent="."]
+texture = ExtResource("1_o145b")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-30, 22, -33, 16, -26, 0, -26, -22, -12, -29, -4, -24, 16, -24, 24, -30, 30, -24, 36, -24, 36, 0, 0, 0, 0, 8, -12, 8, -16, 24)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(22, -12)
+shape = SubResource("CircleShape2D_lb3f5")
+
+[node name="BulletOrigin" type="Marker2D" parent="."]
+position = Vector2(42, -12)

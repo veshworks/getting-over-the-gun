@@ -11,10 +11,16 @@ config_version=5
 [application]
 
 config/name="getting_over_the_gun"
+run/main_scene="res://stages/main.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[gui]
+
+theme/custom="res://assets/main.tres"
+
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
