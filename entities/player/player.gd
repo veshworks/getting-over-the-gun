@@ -43,11 +43,11 @@ func _process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	if not body.is_in_group("ground"): return
+	#if not body.is_in_group("ground"): return
 	is_on_floor = true
 	ground_hit_audio_stream_player_pool.play_immediately()
 
 
 func _on_body_exited(body: Node) -> void:
-	if not body.is_in_group("ground"): return
+	#if not body.is_in_group("ground"): return
 	is_on_floor = false

@@ -2,6 +2,8 @@ extends Node
 class_name SceneManager
 ## This Node should be the root node of the main scene project
 
+const CHILD_SCHENE_NAME = "scene"
+
 @export var main_scene: PackedScene;
 static var singleton: SceneManager:
 	get():
@@ -35,6 +37,7 @@ func _ready() -> void:
 	
 	var instance = main_scene.instantiate()
 	history.append(main_scene)
+	instance.name = CHILD_SCHENE_NAME
 	self.add_child(instance)
 
 
@@ -48,6 +51,6 @@ func change_scene_to_packed(scene: PackedScene) -> void:
 
 func update_current_view() -> void:
 	var scene = history[current_cursor]
-	self.remove_child(self.get_child(0))
+	self.remove_child(self.find_child(CHILD_SCHENE_NAME+"*", false, false))
 	var instance = scene.instantiate()
 	self.add_child(instance)

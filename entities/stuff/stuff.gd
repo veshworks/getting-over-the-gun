@@ -25,7 +25,7 @@ extends StaticBody2D
 			my_collision.set_polygon(my_polygon.polygons[i])
 			my_collision.position -= Vector2((texture.get_width() / 2) + offsetX, (texture.get_height() / 2) + offsetY) * scale.x
 			my_collision.scale = scale
-			my_collision.name = 'custom_col'
+			my_collision.owner = self
 			self.add_child(my_collision, true, Node.INTERNAL_MODE_DISABLED)
 
 func update_sprite_texture(texture: Texture2D) -> void:
