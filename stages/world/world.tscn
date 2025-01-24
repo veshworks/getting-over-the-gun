@@ -17,4 +17,5 @@ position = Vector2(334, 210)
 background = NodePath("../Background")
 
 [node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]
-position = Vector2(597, 470)
+position = Vector2(855, -288)
+scale = Vector2(30, 30)

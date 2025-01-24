@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b0wyaiqvpg84j"]
+[gd_scene load_steps=10 format=3 uid="uid://b0wyaiqvpg84j"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_8ykbw"]
 [ext_resource type="Texture2D" uid="uid://dxgsxptxnej2a" path="res://entities/player/pistol_gun_no_shadow.webp" id="1_o145b"]
@@ -7,11 +7,14 @@
 [ext_resource type="AudioStream" uid="uid://rthdennh2pnp" path="res://entities/player/sounds/212601__pgi__machine-gun-001-single-shot.ogg" id="5_wwh7m"]
 [ext_resource type="AudioStream" uid="uid://cj12wseiv405i" path="res://entities/player/sounds/212607__pgi__machine-gun-002-single-shot.ogg" id="6_afclw"]
 [ext_resource type="AudioStream" uid="uid://bv1lqp5sc12p7" path="res://entities/player/sounds/647593__oneshotofficial__single-action-army-classic-revolver-cock.wav" id="7_l4qog"]
+[ext_resource type="AudioStream" uid="uid://c7nnvi486t36c" path="res://entities/player/sounds/412295__jaklocke__gun-hitting-ground.ogg" id="8_gh22d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0q8s0"]
 radius = 15.0
 
 [node name="Player" type="RigidBody2D"]
+contact_monitor = true
+max_contacts_reported = 3
 script = ExtResource("1_8ykbw")
 bullet_scene = ExtResource("2_2l761")
 
@@ -48,3 +51,13 @@ bus = &"Shooting"
 script = ExtResource("4_sllhm")
 streams = Array[AudioStream]([ExtResource("7_l4qog")])
 bus = &"Shooting"
+
+[node name="GroundHitAudioStreamPlayerPool" type="Node" parent="."]
+script = ExtResource("4_sllhm")
+streams = Array[AudioStream]([ExtResource("8_gh22d")])
+bus = &"SFX"
+pitch_variation = 0.2
+timeout = 0.2
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
