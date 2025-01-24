@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://cugdua0d2i31v"]
+[gd_scene load_steps=4 format=3 uid="uid://cugdua0d2i31v"]
 
+[ext_resource type="Script" path="res://entities/background/background.gd" id="1_12txm"]
 [ext_resource type="Material" uid="uid://h3p1ju0otxlf" path="res://entities/background/sky_shader_material.tres" id="1_37ww3"]
 [ext_resource type="Texture2D" uid="uid://bncqep4ekfw5l" path="res://entities/background/white_pixel.png" id="2_o3j6h"]
 
-[node name="CanvasLayer" type="CanvasLayer"]
+[node name="Background" type="CanvasLayer"]
 layer = -10
+script = ExtResource("1_12txm")
+height_max = 3000.0
+height_min = 612.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 material = ExtResource("1_37ww3")
