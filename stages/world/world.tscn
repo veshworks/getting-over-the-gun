@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=5 format=3 uid="uid://btmi35wugb25k"]
 
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
 [ext_resource type="PackedScene" uid="uid://cxemr1ehjdlgj" path="res://entities/floor/floor.tscn" id="1_m4gmm"]
 [ext_resource type="PackedScene" uid="uid://b0wyaiqvpg84j" path="res://entities/player/player.tscn" id="2_kikoq"]
+[ext_resource type="PackedScene" uid="uid://baq4561klk1a4" path="res://entities/stuff/Stuff.tscn" id="4_xfrrw"]
 
 [node name="World" type="Node2D"]
 
@@ -14,3 +15,6 @@ position = Vector2(425, 647)
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
 position = Vector2(334, 210)
 background = NodePath("../Background")
+
+[node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]
+position = Vector2(597, 470)

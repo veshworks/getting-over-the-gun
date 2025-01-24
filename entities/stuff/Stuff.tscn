@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://baq4561klk1a4"]
+[gd_scene load_steps=3 format=3 uid="uid://baq4561klk1a4"]
+
+[ext_resource type="Script" path="res://entities/stuff/stuff.gd" id="1_75o5c"]
+[ext_resource type="Texture2D" uid="uid://bwshd6rsmqbyf" path="res://entities/stuff/cactus.png" id="2_bkxxb"]
 
 [node name="Stuff" type="StaticBody2D"]
+script = ExtResource("1_75o5c")
+texture = ExtResource("2_bkxxb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bkxxb")

@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0wyaiqvpg84j"]
+[gd_scene load_steps=9 format=3 uid="uid://b0wyaiqvpg84j"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_8ykbw"]
 [ext_resource type="Texture2D" uid="uid://dxgsxptxnej2a" path="res://entities/player/pistol_gun_no_shadow.webp" id="1_o145b"]
 [ext_resource type="PackedScene" uid="uid://bltpg75gmljqq" path="res://entities/bullet/bullet.tscn" id="2_2l761"]
+[ext_resource type="Script" path="res://modules/AudioPool/audio_stream_player_pool.gd" id="4_sllhm"]
+[ext_resource type="AudioStream" uid="uid://rthdennh2pnp" path="res://entities/player/sounds/212601__pgi__machine-gun-001-single-shot.ogg" id="5_wwh7m"]
+[ext_resource type="AudioStream" uid="uid://cj12wseiv405i" path="res://entities/player/sounds/212607__pgi__machine-gun-002-single-shot.ogg" id="6_afclw"]
+[ext_resource type="AudioStream" uid="uid://bv1lqp5sc12p7" path="res://entities/player/sounds/647593__oneshotofficial__single-action-army-classic-revolver-cock.wav" id="7_l4qog"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0q8s0"]
 radius = 15.0
@@ -34,3 +38,13 @@ position = Vector2(-43, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="GunShotSoundPlayer" type="Node" parent="."]
+script = ExtResource("4_sllhm")
+streams = Array[AudioStream]([ExtResource("5_wwh7m"), ExtResource("6_afclw")])
+bus = &"Shooting"
+
+[node name="GunHammerSoundPlayer" type="Node" parent="."]
+script = ExtResource("4_sllhm")
+streams = Array[AudioStream]([ExtResource("7_l4qog")])
+bus = &"Shooting"

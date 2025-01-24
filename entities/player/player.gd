@@ -3,6 +3,8 @@ extends RigidBody2D
 @onready var bullet_origin: Marker2D = $BulletOrigin
 @onready var force_origin: Marker2D = $ForceOrigin
 @onready var nudge_origin: Marker2D = $NudgeOrigin
+@onready var gun_shot_sound_player: AudioStreamPlayerPool = $GunShotSoundPlayer
+@onready var gun_hammer_sound_player: AudioStreamPlayerPool = $GunHammerSoundPlayer
 
 @export var background: Background
 
@@ -24,6 +26,7 @@ func _physics_process(delta: float) -> void:
 		inst.position = bullet_origin.global_position
 		inst.rotation = self.rotation
 		get_tree().root.add_child(inst)
+		gun_shot_sound_player.play_immediately()
 		
 		self.apply_impulse((dir * -1) * BULLET_FORCE, force_origin.position)
 	
@@ -31,6 +34,7 @@ func _physics_process(delta: float) -> void:
 		var up = Vector2(-sin(self.rotation), cos(self.rotation))
 		self.apply_impulse(up * 100, nudge_origin.position)
 		self.apply_torque_impulse(-10000)
+		gun_hammer_sound_player.play_immediately()
 
 func _process(_delta: float) -> void:
 	background.update_height.emit(position.y)

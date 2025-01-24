@@ -7,4 +7,4 @@
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("1_b72ma")
 script = ExtResource("2_8n4dv")
-speed = 1600
+speed = 2400
