@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwjch37827nkm"]
+
+[ext_resource type="Script" path="res://entities/stuff/polygon_2d.gd" id="1_lgv15"]
+
+[node name="Polygon2D" type="Polygon2D"]
+scale = Vector2(4, 4)
+polygon = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+script = ExtResource("1_lgv15")
+
+[node name="PoligonStuff" type="StaticBody2D" parent="."]
+
+[node name="Collider" type="CollisionPolygon2D" parent="PoligonStuff"]
+unique_name_in_owner = true
+polygon = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)

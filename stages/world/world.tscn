@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=9 format=3 uid="uid://btmi35wugb25k"]
 
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
 [ext_resource type="PackedScene" uid="uid://cxemr1ehjdlgj" path="res://entities/floor/floor.tscn" id="1_m4gmm"]
 [ext_resource type="PackedScene" uid="uid://b0wyaiqvpg84j" path="res://entities/player/player.tscn" id="2_kikoq"]
 [ext_resource type="PackedScene" uid="uid://baq4561klk1a4" path="res://entities/stuff/Stuff.tscn" id="4_xfrrw"]
 [ext_resource type="PackedScene" uid="uid://dywln7rsjegdq" path="res://entities/stuff/Boulder.tscn" id="5_vrlil"]
+[ext_resource type="PackedScene" uid="uid://dwjch37827nkm" path="res://entities/stuff/PoligonStuff.tscn" id="6_o2gu2"]
+[ext_resource type="PackedScene" uid="uid://dkdjyg0bt6cxr" path="res://entities/menu_pause/menu_pause.tscn" id="7_e7lw4"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7xqr5"]
 normal = Vector2(1, 0)
@@ -17,11 +19,11 @@ normal = Vector2(1, 0)
 position = Vector2(425, 647)
 
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
-position = Vector2(334, 210)
+position = Vector2(5504, -680)
 background = NodePath("../Background")
 
 [node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]
-position = Vector2(580, 448)
+position = Vector2(1488, 448)
 scale = Vector2(4, 4)
 
 [node name="Boulder" parent="." instance=ExtResource("5_vrlil")]
@@ -33,3 +35,28 @@ scale = Vector2(4, 4)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left invi wall"]
 shape = SubResource("WorldBoundaryShape2D_7xqr5")
+
+[node name="Polygon2D" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(704, 520)
+polygon = PackedVector2Array(32, 32, -32, 32, -24, -2, 24, -2)
+
+[node name="Polygon2D2" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(2496, 408)
+polygon = PackedVector2Array(112, 32, -32, 32, -200, -196, -654, -850, 802, -860, 802, -554)
+
+[node name="Polygon2D3" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(3795, 20)
+scale = Vector2(4.34389, 19.875)
+polygon = PackedVector2Array(312.393, 32, -32, 32, 283.617, -31.7987, 312.393, -32, 448.676, -32, 448.676, -21.5346, 312.393, -21.5346, 312.393, -13.8868, 319.76, -13.4843, 321.601, -9.86164, 319.76, -5.43396, 316.076, -1.00629, 306.868, 2.21384, 295.818, 2.21384, 295.818, 5.83648)
+
+[node name="Polygon2D5" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(6904, -1704)
+scale = Vector2(4, 42)
+polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.0952, -408, 36.5714, -409, 34.8571, -420, 32.7619, -256, 32.9524, -32, -23.1824, -310, -23.4286, -316, -31.8095, 32, -32, 14, 38.8571)
+
+[node name="Polygon2D6" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(6224, 427.948)
+scale = Vector2(35.75, 8.62338)
+polygon = PackedVector2Array(15.6643, 26.6024, -32.2238, 27.3735, -32, -32, -21.035, -32)
+
+[node name="MenuPause" parent="." instance=ExtResource("7_e7lw4")]

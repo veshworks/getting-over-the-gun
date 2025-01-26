@@ -32,7 +32,7 @@ func _physics_process(delta: float) -> void:
 		self.apply_impulse((dir * -1) * BULLET_FORCE, force_origin.position)
 	
 	if Input.is_action_just_pressed("reload"):
-		var up = Vector2(-sin(self.rotation), cos(self.rotation))
+		var up = get_gravity().normalized() * -1
 		self.apply_impulse(up * 100, nudge_origin.position)
 		self.apply_torque_impulse(-10000)
 		gun_hammer_sound_player.play_immediately()

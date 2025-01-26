@@ -4,7 +4,8 @@ class_name SceneManager
 
 const CHILD_SCHENE_NAME = "scene"
 
-@export var main_scene: PackedScene;
+@export var main_scene: PackedScene
+
 static var singleton: SceneManager:
 	get():
 		if !singleton:
@@ -21,8 +22,12 @@ static func set_payload(key, value):
 	SceneManager.singleton.payloads[key] = value
 
 static func go_back(index: int = -1):
-	SceneManager.singleton.current_cursor -= 1
+	SceneManager.singleton.current_cursor += index
 	SceneManager.singleton.update_current_view()
+
+static func get_current_stage() -> Node:
+	return SceneManager.singleton.current_instance
+
 
 var payloads: Dictionary = {}
 
@@ -32,13 +37,15 @@ var last_scene: PackedScene:
 	get():
 		return history.back()
 
+var current_instance: Node
+
 func _ready() -> void:
 	singleton = self
 	
-	var instance = main_scene.instantiate()
+	current_instance = main_scene.instantiate()
 	history.append(main_scene)
-	instance.name = CHILD_SCHENE_NAME
-	self.add_child(instance)
+	current_instance.name = CHILD_SCHENE_NAME
+	self.add_child(current_instance)
 
 
 func change_scene_to_packed(scene: PackedScene) -> void:
@@ -52,5 +59,6 @@ func change_scene_to_packed(scene: PackedScene) -> void:
 func update_current_view() -> void:
 	var scene = history[current_cursor]
 	self.remove_child(self.find_child(CHILD_SCHENE_NAME+"*", false, false))
-	var instance = scene.instantiate()
-	self.add_child(instance)
+	current_instance = scene.instantiate()
+	current_instance.name = CHILD_SCHENE_NAME
+	self.add_child(current_instance)

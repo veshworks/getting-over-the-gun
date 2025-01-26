@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://modules/UI/ui_debug.gd" id="1_a1bva"]
 [ext_resource type="Script" path="res://modules/UI/item_list_source.gd" id="2_m1fvr"]
-[ext_resource type="Script" path="res://modules/UI/button_scene_changer.gd" id="3_rcg1q"]
+[ext_resource type="Script" path="res://modules/UI/scenes/button_scene_changer.gd" id="3_rcg1q"]
 
 [node name="UiDebug" type="CanvasLayer"]
 script = ExtResource("1_a1bva")
