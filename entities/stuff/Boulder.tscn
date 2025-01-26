@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dywln7rsjegdq"]
+
+[ext_resource type="Script" path="res://entities/stuff/stuff.gd" id="1_24q0f"]
+[ext_resource type="Texture2D" uid="uid://5rodiouboce4" path="res://entities/stuff/boulder.png" id="2_3ao2c"]
+
+[node name="Boulder" type="StaticBody2D"]
+script = ExtResource("1_24q0f")
+texture = ExtResource("2_3ao2c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3ao2c")

@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://b0wyaiqvpg84j"]
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_8ykbw"]
-[ext_resource type="Texture2D" uid="uid://dxgsxptxnej2a" path="res://entities/player/pistol_gun_no_shadow.webp" id="1_o145b"]
 [ext_resource type="PackedScene" uid="uid://bltpg75gmljqq" path="res://entities/bullet/bullet.tscn" id="2_2l761"]
+[ext_resource type="Texture2D" uid="uid://d2oycsetvqdm3" path="res://entities/player/pistol_4oitao_gun_extend.webp" id="3_8nl2g"]
 [ext_resource type="Script" path="res://modules/AudioPool/audio_stream_player_pool.gd" id="4_sllhm"]
 [ext_resource type="AudioStream" uid="uid://rthdennh2pnp" path="res://entities/player/sounds/212601__pgi__machine-gun-001-single-shot.ogg" id="5_wwh7m"]
 [ext_resource type="AudioStream" uid="uid://cj12wseiv405i" path="res://entities/player/sounds/212607__pgi__machine-gun-002-single-shot.ogg" id="6_afclw"]
@@ -19,9 +19,8 @@ script = ExtResource("1_8ykbw")
 bullet_scene = ExtResource("2_2l761")
 
 [node name="PistolGunNoShadow" type="Sprite2D" parent="."]
-position = Vector2(-2, 14.5)
-scale = Vector2(1.87805, 1.10938)
-texture = ExtResource("1_o145b")
+position = Vector2(4, 16)
+texture = ExtResource("3_8nl2g")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-59, -13, 66, -13, 66, 13, -30, 13, -30, 48, -59, 48)
@@ -40,6 +39,7 @@ position = Vector2(-30, -2)
 position = Vector2(-43, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
+limit_left = 0
 position_smoothing_enabled = true
 
 [node name="GunShotSoundPlayer" type="Node" parent="."]
@@ -60,4 +60,3 @@ pitch_variation = 0.2
 timeout = 0.2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_body_exited"]

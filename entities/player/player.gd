@@ -15,7 +15,6 @@ const BULLET_FORCE = 300
 const AIR_DRAG = 10
 
 var bullet_momentum = Vector2.ZERO
-var is_on_floor = false
 
 func _physics_process(delta: float) -> void:
 	var rotation = Input.get_axis("left", "right")
@@ -32,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		
 		self.apply_impulse((dir * -1) * BULLET_FORCE, force_origin.position)
 	
-	if Input.is_action_just_pressed("reload") and is_on_floor:
+	if Input.is_action_just_pressed("reload"):
 		var up = Vector2(-sin(self.rotation), cos(self.rotation))
 		self.apply_impulse(up * 100, nudge_origin.position)
 		self.apply_torque_impulse(-10000)
@@ -43,11 +42,4 @@ func _process(_delta: float) -> void:
 
 
 func _on_body_entered(body: Node) -> void:
-	#if not body.is_in_group("ground"): return
-	is_on_floor = true
 	ground_hit_audio_stream_player_pool.play_immediately()
-
-
-func _on_body_exited(body: Node) -> void:
-	#if not body.is_in_group("ground"): return
-	is_on_floor = false
