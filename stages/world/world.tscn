@@ -16,7 +16,7 @@ normal = Vector2(1, 0)
 [node name="Background" parent="." instance=ExtResource("1_cym6x")]
 
 [node name="Floor" parent="." instance=ExtResource("1_m4gmm")]
-position = Vector2(425, 647)
+position = Vector2(0, 647)
 
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
 position = Vector2(5504, -680)

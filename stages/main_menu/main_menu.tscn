@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://chhvd3mg13636"]
+[gd_scene load_steps=5 format=3 uid="uid://chhvd3mg13636"]
 
 [ext_resource type="Script" path="res://modules/UI/scenes/button_scene_changer.gd" id="1_imig6"]
 [ext_resource type="PackedScene" uid="uid://btmi35wugb25k" path="res://stages/world/world.tscn" id="2_fvjwa"]
 [ext_resource type="PackedScene" uid="uid://bgsjtpboxq766" path="res://entities/menu_options/menu_options.tscn" id="3_f1hhg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pnqu5"]
+font_size = 36
 
 [node name="MainMenu" type="CanvasLayer"]
 
@@ -25,11 +28,14 @@ theme_override_constants/separation = 32
 
 [node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Getting over The Gun"
+text = "American Marathon"
+label_settings = SubResource("LabelSettings_pnqu5")
 horizontal_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 
 [node name="ButtonPlay" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -39,3 +45,4 @@ scene = ExtResource("2_fvjwa")
 
 [node name="MenuOptions" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_f1hhg")]
 layout_mode = 2
+size_flags_horizontal = 4
