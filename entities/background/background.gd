@@ -2,7 +2,7 @@
 extends CanvasLayer
 class_name Background
 
-@onready var texture_rect: TextureRect = $TextureRect
+@onready var texture_rect: TextureRect = %TextureRect
 signal update_height(height: float)
 
 @export var height_max: float = 2000

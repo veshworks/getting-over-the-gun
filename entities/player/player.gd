@@ -10,7 +10,7 @@ extends RigidBody2D
 @export var background: Background
 
 @export var bullet_scene: PackedScene
-const BULLET_FORCE = 300
+@export var bullet_force = 300
 
 const AIR_DRAG = 10
 
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().root.add_child(inst)
 		gun_shot_sound_player.play_immediately()
 		
-		self.apply_impulse((dir * -1) * BULLET_FORCE, force_origin.position)
+		self.apply_impulse((dir * -1) * bullet_force, force_origin.position)
 	
 	if Input.is_action_just_pressed("reload"):
 		var up = get_gravity().normalized() * -1

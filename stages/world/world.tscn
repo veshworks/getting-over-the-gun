@@ -19,7 +19,7 @@ normal = Vector2(1, 0)
 position = Vector2(0, 647)
 
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
-position = Vector2(5504, -680)
+position = Vector2(6305, 228)
 background = NodePath("../Background")
 
 [node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]
@@ -52,7 +52,7 @@ polygon = PackedVector2Array(312.393, 32, -32, 32, 283.617, -31.7987, 312.393, -
 [node name="Polygon2D5" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6904, -1704)
 scale = Vector2(4, 42)
-polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.0952, -408, 36.5714, -409, 34.8571, -420, 32.7619, -256, 32.9524, -32, -23.1824, -310, -23.4286, -316, -31.8095, 32, -32, 14, 38.8571)
+polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.0952, -408, 36.5714, -409, 34.8571, -420, 32.7619, -256, 32.9524, -32, -23.1824, -310, -23.4286, -316, -31.8095, 32, -32, 767.25, -31.2381, 760.75, -20.9048, 29.0677, -20.457, 14, 38.8571)
 
 [node name="Polygon2D6" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6224, 427.948)
@@ -60,3 +60,8 @@ scale = Vector2(35.75, 8.62338)
 polygon = PackedVector2Array(15.6643, 26.6024, -32.2238, 27.3735, -32, -32, -21.035, -32)
 
 [node name="MenuPause" parent="." instance=ExtResource("7_e7lw4")]
+
+[node name="Polygon2D4" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(7868, -602)
+scale = Vector2(4, 39.4219)
+polygon = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)

@@ -17,6 +17,7 @@ contact_monitor = true
 max_contacts_reported = 3
 script = ExtResource("1_8ykbw")
 bullet_scene = ExtResource("2_2l761")
+bullet_force = 400
 
 [node name="PistolGunNoShadow" type="Sprite2D" parent="."]
 position = Vector2(4, 16)
