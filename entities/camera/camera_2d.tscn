@@ -7,3 +7,4 @@ limit_left = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 15.0
 script = ExtResource("1_0agmg")
+start_offset = Vector2(0, -250)
