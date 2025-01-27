@@ -39,10 +39,6 @@ position = Vector2(-30, -2)
 [node name="NudgeOrigin" type="Marker2D" parent="."]
 position = Vector2(-43, 0)
 
-[node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 0
-position_smoothing_enabled = true
-
 [node name="GunShotSoundPlayer" type="Node" parent="."]
 script = ExtResource("4_sllhm")
 streams = Array[AudioStream]([ExtResource("5_wwh7m"), ExtResource("6_afclw")])

@@ -1,17 +1,31 @@
-[gd_scene load_steps=9 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=13 format=3 uid="uid://btmi35wugb25k"]
 
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
 [ext_resource type="PackedScene" uid="uid://cxemr1ehjdlgj" path="res://entities/floor/floor.tscn" id="1_m4gmm"]
+[ext_resource type="PackedScene" uid="uid://cvioqeyrh8omv" path="res://entities/camera/camera_2d.tscn" id="1_nd0p2"]
+[ext_resource type="PackedScene" uid="uid://c25myhtldtedb" path="res://entities/hud/hud.tscn" id="1_x35hn"]
 [ext_resource type="PackedScene" uid="uid://b0wyaiqvpg84j" path="res://entities/player/player.tscn" id="2_kikoq"]
 [ext_resource type="PackedScene" uid="uid://baq4561klk1a4" path="res://entities/stuff/Stuff.tscn" id="4_xfrrw"]
 [ext_resource type="PackedScene" uid="uid://dywln7rsjegdq" path="res://entities/stuff/Boulder.tscn" id="5_vrlil"]
 [ext_resource type="PackedScene" uid="uid://dwjch37827nkm" path="res://entities/stuff/PoligonStuff.tscn" id="6_o2gu2"]
 [ext_resource type="PackedScene" uid="uid://dkdjyg0bt6cxr" path="res://entities/menu_pause/menu_pause.tscn" id="7_e7lw4"]
+[ext_resource type="PackedScene" uid="uid://crwp57fyvtah8" path="res://entities/finish_pole/finish_pole.tscn" id="9_yvkgl"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_7xqr5"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6lh7"]
 normal = Vector2(1, 0)
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4bx7"]
+normal = Vector2(-1, 0)
+
 [node name="World" type="Node2D"]
+
+[node name="Camera2D" parent="." node_paths=PackedStringArray("player", "finish_pole") instance=ExtResource("1_nd0p2")]
+player = NodePath("../Player")
+finish_pole = NodePath("../FinishPole")
+
+[node name="MenuPause" parent="." instance=ExtResource("7_e7lw4")]
+
+[node name="HUD" parent="." instance=ExtResource("1_x35hn")]
 
 [node name="Background" parent="." instance=ExtResource("1_cym6x")]
 
@@ -19,7 +33,7 @@ normal = Vector2(1, 0)
 position = Vector2(0, 647)
 
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
-position = Vector2(6305, 228)
+position = Vector2(154, 435)
 background = NodePath("../Background")
 
 [node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]
@@ -34,7 +48,14 @@ scale = Vector2(4, 4)
 [node name="left invi wall" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="left invi wall"]
-shape = SubResource("WorldBoundaryShape2D_7xqr5")
+shape = SubResource("WorldBoundaryShape2D_c6lh7")
+
+[node name="right invi wall" type="StaticBody2D" parent="."]
+position = Vector2(15000, 664)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="right invi wall"]
+shape = SubResource("WorldBoundaryShape2D_t4bx7")
+metadata/_edit_lock_ = true
 
 [node name="Polygon2D" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(704, 520)
@@ -52,16 +73,22 @@ polygon = PackedVector2Array(312.393, 32, -32, 32, 283.617, -31.7987, 312.393, -
 [node name="Polygon2D5" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6904, -1704)
 scale = Vector2(4, 42)
-polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.0952, -408, 36.5714, -409, 34.8571, -420, 32.7619, -256, 32.9524, -32, -23.1824, -310, -23.4286, -316, -31.8095, 32, -32, 767.25, -31.2381, 760.75, -20.9048, 29.0677, -20.457, 14, 38.8571)
+polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.0952, -408, 36.5714, -409, 34.8571, -420, 32.7619, -256, 32.9524, -32, -23.1824, -310, -23.2381, -306, -32, -188, -141.333, 184, -52, 220, -20.381, 30, -20.381, 14, 38.8571)
 
 [node name="Polygon2D6" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6224, 427.948)
 scale = Vector2(35.75, 8.62338)
 polygon = PackedVector2Array(15.6643, 26.6024, -32.2238, 27.3735, -32, -32, -21.035, -32)
 
-[node name="MenuPause" parent="." instance=ExtResource("7_e7lw4")]
-
 [node name="Polygon2D4" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(7868, -602)
 scale = Vector2(4, 39.4219)
-polygon = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
+polygon = PackedVector2Array(33, 31.7083, -31, 31.7083, -31, -31.8097, 33, -31.8097)
+
+[node name="Polygon2D7" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(8720, -602)
+scale = Vector2(4, 39.4219)
+polygon = PackedVector2Array(503, 31.9112, 499, -63.0614, 151, -101.822, 191, -100.401, 500.319, -69.1899, 479, -128.203, 495, -123.13, 523.417, -90.7495, 657, -114.809, 699, -118.665, 537, -79.2961, 551, -64.0761, 556.749, -48.7314, 815, -68.7436, 875, -71.3817, 563.2, -41.9564, 577, 5.32699, 595, 31.7083)
+
+[node name="FinishPole" parent="." instance=ExtResource("9_yvkgl")]
+position = Vector2(14232, 647)

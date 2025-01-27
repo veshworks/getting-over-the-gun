@@ -1,4 +1,5 @@
 extends RigidBody2D
+class_name Player
 
 @onready var bullet_origin: Marker2D = $BulletOrigin
 @onready var force_origin: Marker2D = $ForceOrigin

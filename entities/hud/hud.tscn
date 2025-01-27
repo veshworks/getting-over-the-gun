@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://c25myhtldtedb"]
+
+[ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_iwr0u"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_vybyb"]
+font_size = 32
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_iwr0u")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -33.0
+offset_bottom = 55.0
+grow_horizontal = 0
+
+[node name="TimeDisplay" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:00:00"
+label_settings = SubResource("LabelSettings_vybyb")
+
+[node name="Timer" type="Timer" parent="MarginContainer/TimeDisplay"]
+wait_time = 0.2

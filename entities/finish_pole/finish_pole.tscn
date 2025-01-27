@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://crwp57fyvtah8"]
+
+[ext_resource type="Texture2D" uid="uid://dq8asjbrjur0s" path="res://entities/finish_pole/finish_pole.png" id="1_hplja"]
+[ext_resource type="Script" path="res://entities/finish_pole/finish_pole.gd" id="1_pu7p8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wdilo"]
+size = Vector2(768, 192)
+
+[node name="FinishPole" type="Node2D"]
+script = ExtResource("1_pu7p8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_hplja")
+offset = Vector2(25.5, -112)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(384, -96)
+shape = SubResource("RectangleShape2D_wdilo")

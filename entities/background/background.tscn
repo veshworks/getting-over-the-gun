@@ -17,7 +17,7 @@ height_min = 612.0
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 0.2)
-motion_offset = Vector2(400, -35)
+motion_offset = Vector2(400, 0)
 motion_mirroring = Vector2(3512, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
