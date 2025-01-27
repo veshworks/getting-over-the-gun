@@ -1,9 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=14 format=3 uid="uid://btmi35wugb25k"]
 
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
 [ext_resource type="PackedScene" uid="uid://cxemr1ehjdlgj" path="res://entities/floor/floor.tscn" id="1_m4gmm"]
 [ext_resource type="PackedScene" uid="uid://cvioqeyrh8omv" path="res://entities/camera/camera_2d.tscn" id="1_nd0p2"]
 [ext_resource type="PackedScene" uid="uid://c25myhtldtedb" path="res://entities/hud/hud.tscn" id="1_x35hn"]
+[ext_resource type="PackedScene" uid="uid://btkaw746istgf" path="res://entities/menu_win/menu_win.tscn" id="2_1i5o3"]
 [ext_resource type="PackedScene" uid="uid://b0wyaiqvpg84j" path="res://entities/player/player.tscn" id="2_kikoq"]
 [ext_resource type="PackedScene" uid="uid://baq4561klk1a4" path="res://entities/stuff/Stuff.tscn" id="4_xfrrw"]
 [ext_resource type="PackedScene" uid="uid://dywln7rsjegdq" path="res://entities/stuff/Boulder.tscn" id="5_vrlil"]
@@ -23,11 +24,17 @@ normal = Vector2(-1, 0)
 player = NodePath("../Player")
 finish_pole = NodePath("../FinishPole")
 
+[node name="MenuWin" parent="." instance=ExtResource("2_1i5o3")]
+
 [node name="MenuPause" parent="." instance=ExtResource("7_e7lw4")]
 
 [node name="HUD" parent="." instance=ExtResource("1_x35hn")]
 
 [node name="Background" parent="." instance=ExtResource("1_cym6x")]
+
+[node name="FinishPole" parent="." node_paths=PackedStringArray("win_layer") instance=ExtResource("9_yvkgl")]
+position = Vector2(14232, 647)
+win_layer = NodePath("../MenuWin")
 
 [node name="Floor" parent="." instance=ExtResource("1_m4gmm")]
 position = Vector2(0, 647)
@@ -89,6 +96,3 @@ polygon = PackedVector2Array(33, 31.7083, -31, 31.7083, -31, -31.8097, 33, -31.8
 position = Vector2(8720, -602)
 scale = Vector2(4, 39.4219)
 polygon = PackedVector2Array(503, 31.9112, 499, -63.0614, 151, -101.822, 191, -100.401, 500.319, -69.1899, 479, -128.203, 495, -123.13, 523.417, -90.7495, 657, -114.809, 699, -118.665, 537, -79.2961, 551, -64.0761, 556.749, -48.7314, 815, -68.7436, 875, -71.3817, 563.2, -41.9564, 577, 5.32699, 595, 31.7083)
-
-[node name="FinishPole" parent="." instance=ExtResource("9_yvkgl")]
-position = Vector2(14232, 647)

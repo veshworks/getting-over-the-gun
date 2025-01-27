@@ -9,6 +9,7 @@ func _input(event: InputEvent) -> void:
 	var tree = get_tree()
 	self.visible = !tree.paused
 	tree.paused = !tree.paused
+	print('wololo')
 
 func _exit_tree() -> void:
 	get_tree().paused = false
