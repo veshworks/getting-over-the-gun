@@ -14,3 +14,26 @@ layout_mode = 2
 max_value = 1.0
 step = 0.05
 script = ExtResource("1_p7g6n")
+bus = &"Master"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+text = "BGM Volume"
+
+[node name="VolumeSlider2" type="HSlider" parent="."]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("1_p7g6n")
+bus = &"BGM"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="VolumeSlider3" type="HSlider" parent="."]
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("1_p7g6n")
+bus = &"SFX"

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxemr1ehjdlgj"]
 
-[ext_resource type="Texture2D" uid="uid://dq3a4x5n72jwq" path="res://entities/floor/um_verdinho_extended.webp" id="1_bsid0"]
+[ext_resource type="Texture2D" uid="uid://cbhlbjbbrusbw" path="res://entities/floor/um_verdinho.png" id="1_6h0u1"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8hoej"]
 
@@ -10,12 +10,12 @@
 shape = SubResource("WorldBoundaryShape2D_8hoej")
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
-repeat_size = Vector2(800, 0)
+repeat_size = Vector2(14400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 texture_repeat = 2
 scale = Vector2(4, 4)
-texture = ExtResource("1_bsid0")
+texture = ExtResource("1_6h0u1")
 centered = false
 region_enabled = true
 region_rect = Rect2(0, 0, 3600, 256)

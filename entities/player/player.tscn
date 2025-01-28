@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/player/player.gd" id="1_8ykbw"]
 [ext_resource type="PackedScene" uid="uid://bltpg75gmljqq" path="res://entities/bullet/bullet.tscn" id="2_2l761"]
-[ext_resource type="Texture2D" uid="uid://d2oycsetvqdm3" path="res://entities/player/pistol_4oitao_gun_extend.webp" id="3_8nl2g"]
+[ext_resource type="Texture2D" uid="uid://bckkp0ejx4l6k" path="res://entities/player/pistol_shot_400mil_gun.webp" id="3_q7w28"]
 [ext_resource type="Script" path="res://modules/AudioPool/audio_stream_player_pool.gd" id="4_sllhm"]
 [ext_resource type="AudioStream" uid="uid://rthdennh2pnp" path="res://entities/player/sounds/212601__pgi__machine-gun-001-single-shot.ogg" id="5_wwh7m"]
 [ext_resource type="AudioStream" uid="uid://cj12wseiv405i" path="res://entities/player/sounds/212607__pgi__machine-gun-002-single-shot.ogg" id="6_afclw"]
@@ -20,8 +20,8 @@ bullet_scene = ExtResource("2_2l761")
 bullet_force = 400
 
 [node name="PistolGunNoShadow" type="Sprite2D" parent="."]
-position = Vector2(4, 16)
-texture = ExtResource("3_8nl2g")
+position = Vector2(4, 17)
+texture = ExtResource("3_q7w28")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-59, -13, 66, -13, 66, 13, -30, 13, -30, 48, -59, 48)
@@ -31,7 +31,7 @@ position = Vector2(54, 0)
 shape = SubResource("CircleShape2D_0q8s0")
 
 [node name="BulletOrigin" type="Marker2D" parent="."]
-position = Vector2(67, -1)
+position = Vector2(71, 2)
 
 [node name="ForceOrigin" type="Marker2D" parent="."]
 position = Vector2(-30, -2)

@@ -16,21 +16,24 @@ class_name Player
 const AIR_DRAG = 10
 
 var bullet_momentum = Vector2.ZERO
+var bullet_pool: Array[Bullet]
+
+func _ready() -> void:
+	while bullet_pool.size() < 20:
+		var inst = bullet_scene.instantiate() as Bullet
+		get_tree().root.add_child(inst)
+		bullet_pool.append(inst)
 
 func _physics_process(delta: float) -> void:
 	var rotation = Input.get_axis("left", "right")
 	self.apply_torque_impulse(rotation * 1000)
 	
 	if (Input.is_action_just_pressed("shoot")):
-		var inst = bullet_scene.instantiate() as Bullet
-		var dir = Vector2(cos(self.rotation), sin(self.rotation))
-		inst.direction = dir
-		inst.position = bullet_origin.global_position
-		inst.rotation = self.rotation
-		get_tree().root.add_child(inst)
+		var bullet = bullet_pool.pop_back() as Bullet
+		bullet.shoot(bullet_origin.global_position, self.rotation)
+		bullet_pool.push_front(bullet)
 		gun_shot_sound_player.play_immediately()
-		
-		self.apply_impulse((dir * -1) * bullet_force, force_origin.position)
+		self.apply_impulse((bullet.direction * -1) * bullet_force, force_origin.position)
 	
 	if Input.is_action_just_pressed("reload"):
 		var up = get_gravity().normalized() * -1

@@ -13,7 +13,6 @@ var stopwatch_diplay: String:
 		return "%02d:%02d:%02d.%02d" % [h, min, s, ms]
 
 func _ready() -> void:
-	singleton = self
 	stopwatch_begin()
 
 func _process(delta: float) -> void:

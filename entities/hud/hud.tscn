@@ -26,3 +26,7 @@ label_settings = SubResource("LabelSettings_vybyb")
 
 [node name="Timer" type="Timer" parent="MarginContainer/TimeDisplay"]
 wait_time = 0.2
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+offset_right = 32.0
+offset_bottom = 32.0
