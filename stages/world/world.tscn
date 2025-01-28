@@ -45,7 +45,7 @@ game_state = NodePath("../GameState")
 position = Vector2(0, 647)
 
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
-position = Vector2(160, 437)
+position = Vector2(216, 320)
 background = NodePath("../Background")
 
 [node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]
@@ -63,7 +63,7 @@ scale = Vector2(4, 4)
 shape = SubResource("WorldBoundaryShape2D_c6lh7")
 
 [node name="right invi wall" type="StaticBody2D" parent="."]
-position = Vector2(15000, 664)
+position = Vector2(14424, 647)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="right invi wall"]
 shape = SubResource("WorldBoundaryShape2D_t4bx7")
