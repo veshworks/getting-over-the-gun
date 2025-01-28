@@ -1,7 +1,15 @@
-[gd_resource type="Theme" format=3 uid="uid://clmqcbjlw8vap"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://clmqcbjlw8vap"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ta6lp"]
+bg_color = Color(0.180392, 0.180392, 0.180392, 0.921569)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 
 [resource]
 MarginContainer/constants/margin_bottom = 16
 MarginContainer/constants/margin_left = 16
 MarginContainer/constants/margin_right = 16
 MarginContainer/constants/margin_top = 16
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ta6lp")

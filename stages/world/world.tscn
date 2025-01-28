@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=15 format=3 uid="uid://btmi35wugb25k"]
 
+[ext_resource type="PackedScene" uid="uid://clmmyo7s7b3md" path="res://entities/game_state/game_state.tscn" id="1_2oati"]
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
 [ext_resource type="PackedScene" uid="uid://cxemr1ehjdlgj" path="res://entities/floor/floor.tscn" id="1_m4gmm"]
 [ext_resource type="PackedScene" uid="uid://cvioqeyrh8omv" path="res://entities/camera/camera_2d.tscn" id="1_nd0p2"]
@@ -20,6 +21,8 @@ normal = Vector2(-1, 0)
 
 [node name="World" type="Node2D"]
 
+[node name="GameState" parent="." instance=ExtResource("1_2oati")]
+
 [node name="Camera2D" parent="." node_paths=PackedStringArray("player", "finish_pole") instance=ExtResource("1_nd0p2")]
 player = NodePath("../Player")
 finish_pole = NodePath("../FinishPole")
@@ -28,19 +31,21 @@ finish_pole = NodePath("../FinishPole")
 
 [node name="MenuPause" parent="." instance=ExtResource("7_e7lw4")]
 
-[node name="HUD" parent="." instance=ExtResource("1_x35hn")]
+[node name="HUD" parent="." node_paths=PackedStringArray("game_state") instance=ExtResource("1_x35hn")]
+game_state = NodePath("../GameState")
 
 [node name="Background" parent="." instance=ExtResource("1_cym6x")]
 
-[node name="FinishPole" parent="." node_paths=PackedStringArray("win_layer") instance=ExtResource("9_yvkgl")]
+[node name="FinishPole" parent="." node_paths=PackedStringArray("win_layer", "game_state") instance=ExtResource("9_yvkgl")]
 position = Vector2(14232, 647)
 win_layer = NodePath("../MenuWin")
+game_state = NodePath("../GameState")
 
 [node name="Floor" parent="." instance=ExtResource("1_m4gmm")]
 position = Vector2(0, 647)
 
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
-position = Vector2(154, 435)
+position = Vector2(13408, 488)
 background = NodePath("../Background")
 
 [node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]

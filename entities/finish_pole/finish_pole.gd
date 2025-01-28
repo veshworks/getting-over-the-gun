@@ -1,7 +1,8 @@
 extends Node2D
 class_name FinishPole
 
-@export var win_layer: CanvasLayer
+@export var win_layer: MenuWin
+@export var game_state: GameState
 
 
 func _ready() -> void:
@@ -10,6 +11,5 @@ func _ready() -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if not body is Player: return
-	win_layer.visible = true
-	await get_tree().create_timer(1.5).timeout
-	get_tree().paused = true
+	win_layer.display(game_state.stopwatch_end())
+	game_state.stop()

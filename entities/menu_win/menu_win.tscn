@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://btkaw746istgf"]
 
-[ext_resource type="Script" path="res://entities/menu_pause/menu_pause.gd" id="1_80lvu"]
+[ext_resource type="Script" path="res://entities/menu_win/menu_win.gd" id="1_bus3q"]
 [ext_resource type="Script" path="res://modules/UI/scenes/button_scene_changer.gd" id="2_5c6ev"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d17cj"]
@@ -8,35 +8,43 @@ font_size = 32
 
 [node name="MenuWin" type="CanvasLayer"]
 process_mode = 3
-script = ExtResource("1_80lvu")
+script = ExtResource("1_bus3q")
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-anchors_preset = 15
+anchors_preset = 12
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = -163.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
+size_flags_horizontal = 0
 
-[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 32
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/MarginContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CenterContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "YOU WON!"
 label_settings = SubResource("LabelSettings_d17cj")
 
-[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Time" type="Label" parent="CenterContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "You made it to the finish line in 00:00:00.00!"
+text = "You made it to the finish line in %s!"
 
-[node name="ButtonSceneChanger" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="ButtonSceneChanger" type="Button" parent="CenterContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 script = ExtResource("2_5c6ev")
