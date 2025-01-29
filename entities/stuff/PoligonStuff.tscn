@@ -1,11 +1,19 @@
-[gd_scene load_steps=2 format=3 uid="uid://dwjch37827nkm"]
+[gd_scene load_steps=3 format=3 uid="uid://dwjch37827nkm"]
 
 [ext_resource type="Script" path="res://entities/stuff/polygon_2d.gd" id="1_lgv15"]
+[ext_resource type="Script" path="res://entities/hud/minimap_visual.gd" id="2_ssvlu"]
 
 [node name="Polygon2D" type="Polygon2D"]
+visibility_layer = 3
 scale = Vector2(4, 4)
 polygon = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
 script = ExtResource("1_lgv15")
+
+[node name="Minimap" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+visibility_layer = 2
+z_index = -10
+script = ExtResource("2_ssvlu")
 
 [node name="PoligonStuff" type="StaticBody2D" parent="."]
 

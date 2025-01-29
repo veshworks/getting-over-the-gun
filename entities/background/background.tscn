@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://entities/background/background.gd" id="1_12txm"]
 [ext_resource type="Material" uid="uid://h3p1ju0otxlf" path="res://entities/background/sky_shader_material.tres" id="1_37ww3"]
-[ext_resource type="Texture2D" uid="uid://bncqep4ekfw5l" path="res://entities/background/white_pixel.png" id="2_o3j6h"]
+[ext_resource type="Texture2D" uid="uid://bncqep4ekfw5l" path="res://assets/white_pixel.png" id="2_o3j6h"]
 [ext_resource type="Texture2D" uid="uid://d0hc1qic6740m" path="res://entities/background/montains.png" id="2_x5l21"]
 [ext_resource type="Texture2D" uid="uid://dt6h4otrbgeg" path="res://entities/background/cloud1.png" id="3_6rwww"]
 [ext_resource type="Texture2D" uid="uid://dp5dhus4k4mi3" path="res://entities/background/cloud2.png" id="4_eecw1"]

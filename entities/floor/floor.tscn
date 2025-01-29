@@ -1,10 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxemr1ehjdlgj"]
+[gd_scene load_steps=4 format=3 uid="uid://cxemr1ehjdlgj"]
 
 [ext_resource type="Texture2D" uid="uid://cbhlbjbbrusbw" path="res://entities/floor/um_verdinho.png" id="1_6h0u1"]
+[ext_resource type="Script" path="res://entities/hud/minimap_visual.gd" id="1_xrrxo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8hoej"]
 
 [node name="Floor" type="StaticBody2D"]
+visibility_layer = 3
+
+[node name="Minimap" type="Polygon2D" parent="."]
+visibility_layer = 2
+z_index = -10
+polygon = PackedVector2Array(-127008, 0, -116935, 66962, 306318, 67285, 308984, 0)
+script = ExtResource("1_xrrxo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_8hoej")

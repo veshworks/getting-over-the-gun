@@ -13,6 +13,8 @@ class_name Player
 @export var bullet_scene: PackedScene
 @export var bullet_force = 300
 
+@export var max_angular_velocity: float = 10
+
 const AIR_DRAG = 10
 
 var bullet_momentum = Vector2.ZERO

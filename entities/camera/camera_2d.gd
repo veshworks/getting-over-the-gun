@@ -1,4 +1,5 @@
 extends Camera2D
+class_name CameraMain
 
 @export var player: Player
 @export var finish_pole: FinishPole
@@ -9,6 +10,8 @@ extends Camera2D
 var target: Node2D
 
 func _ready() -> void:
+	self.get_viewport().canvas_cull_mask = 1
+	
 	self.offset = start_offset
 	self.position_smoothing_enabled = false
 	self.position = finish_pole.position + offset
