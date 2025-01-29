@@ -1,6 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://bgsjtpboxq766"]
+[gd_scene load_steps=3 format=3 uid="uid://bgsjtpboxq766"]
 
 [ext_resource type="Script" path="res://entities/menu_options/volume_slider.gd" id="1_p7g6n"]
+
+[sub_resource type="GDScript" id="GDScript_70mj2"]
+script/source = "extends LineEdit
+
+
+func _on_text_submitted(new_text: String) -> void:
+	GameState.singleton.angular_damp = float(new_text)
+"
 
 [node name="MenuOptions" type="VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -37,3 +45,14 @@ max_value = 1.0
 step = 0.05
 script = ExtResource("1_p7g6n")
 bus = &"SFX"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 2
+text = "Difficulty Volume"
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+text = "1.8"
+script = SubResource("GDScript_70mj2")
+
+[connection signal="text_submitted" from="LineEdit" to="LineEdit" method="_on_text_submitted"]

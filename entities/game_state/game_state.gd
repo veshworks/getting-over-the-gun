@@ -1,6 +1,19 @@
 extends Node
 class_name GameState
 
+static var singleton: GameState:
+	set(value):
+		if singleton and value != null:
+			assert(false, "Error: singleton already populated")
+			return
+		singleton = value
+
+var angular_damp = 1.8:
+	set(value):
+		angular_damp = value
+		update_angular_damp.emit(value)
+signal update_angular_damp(value: float)
+
 var stopwatch: float = 0.0
 
 var stopwatch_enabled:= false
@@ -13,7 +26,11 @@ var stopwatch_diplay: String:
 		return "%02d:%02d:%02d.%02d" % [h, min, s, ms]
 
 func _ready() -> void:
+	singleton = self
 	stopwatch_begin()
+
+func _exit_tree() -> void:
+	singleton = null
 
 func _process(delta: float) -> void:
 	if stopwatch_enabled:

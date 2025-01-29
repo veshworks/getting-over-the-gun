@@ -15,9 +15,9 @@ script = ExtResource("1_pu7p8")
 [node name="MinimapObjective" type="Sprite2D" parent="."]
 visibility_layer = 2
 z_index = -8
-position = Vector2(96, -96)
 scale = Vector2(1.12062, 1.12062)
 texture = ExtResource("3_624el")
+offset = Vector2(96, -96)
 script = ExtResource("4_qp577")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

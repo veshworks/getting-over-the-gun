@@ -39,6 +39,7 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_xivm6")
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="MarginContainer2"]
+modulate = Color(1, 1, 1, 0.784314)
 layout_mode = 2
 
 [node name="SubViewport" type="SubViewport" parent="MarginContainer2/SubViewportContainer"]

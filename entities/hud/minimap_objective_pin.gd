@@ -12,6 +12,11 @@ func _process(delta: float) -> void:
 	var min_bound = camera.global_position - projection_halfsize + camera.offset
 	var max_bound = camera.global_position + projection_halfsize + camera.offset
 	
+	if self.offset:
+		min_bound -= self.offset
+		max_bound -= self.offset
+		pass
+	
 	var center_on = parent.global_position
 	
 	global_position.x = clamp(center_on.x, min_bound.x, max_bound.x)

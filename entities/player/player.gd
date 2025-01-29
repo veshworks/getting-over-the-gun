@@ -25,6 +25,9 @@ func _ready() -> void:
 		var inst = bullet_scene.instantiate() as Bullet
 		get_tree().root.add_child(inst)
 		bullet_pool.append(inst)
+	GameState.singleton.update_angular_damp.connect(func(value):
+		self.angular_damp = value
+		)
 
 func _physics_process(delta: float) -> void:
 	var rotation = Input.get_axis("left", "right")
