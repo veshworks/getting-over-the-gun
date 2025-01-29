@@ -20,6 +20,7 @@ static func get_payload(key):
 	return value
 static func set_payload(key, value):
 	SceneManager.singleton.payloads[key] = value
+	SceneManager.singleton.payload_updated.emit(key)
 
 static func go_back(index: int = -1):
 	SceneManager.singleton.current_cursor += index
@@ -28,6 +29,7 @@ static func go_back(index: int = -1):
 static func get_current_stage() -> Node:
 	return SceneManager.singleton.current_instance
 
+signal payload_updated(key: Variant)
 
 var payloads: Dictionary = {}
 
