@@ -19,6 +19,7 @@ scale = Vector2(1.12062, 1.12062)
 texture = ExtResource("3_624el")
 offset = Vector2(96, -96)
 script = ExtResource("4_qp577")
+minimap_material = null
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_hplja")

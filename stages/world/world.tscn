@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=18 format=3 uid="uid://btmi35wugb25k"]
 
 [ext_resource type="PackedScene" uid="uid://clmmyo7s7b3md" path="res://entities/game_state/game_state.tscn" id="1_2oati"]
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
@@ -8,18 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://btkaw746istgf" path="res://entities/menu_win/menu_win.tscn" id="2_1i5o3"]
 [ext_resource type="PackedScene" uid="uid://b0wyaiqvpg84j" path="res://entities/player/player.tscn" id="2_kikoq"]
 [ext_resource type="PackedScene" uid="uid://baq4561klk1a4" path="res://entities/stuff/Stuff.tscn" id="4_xfrrw"]
-[ext_resource type="PackedScene" uid="uid://dywln7rsjegdq" path="res://entities/stuff/Boulder.tscn" id="5_vrlil"]
 [ext_resource type="PackedScene" uid="uid://dwjch37827nkm" path="res://entities/stuff/PoligonStuff.tscn" id="6_o2gu2"]
 [ext_resource type="PackedScene" uid="uid://dkdjyg0bt6cxr" path="res://entities/menu_pause/menu_pause.tscn" id="7_e7lw4"]
 [ext_resource type="PackedScene" uid="uid://crwp57fyvtah8" path="res://entities/finish_pole/finish_pole.tscn" id="9_yvkgl"]
 [ext_resource type="Texture2D" uid="uid://bncqep4ekfw5l" path="res://assets/white_pixel.png" id="12_q56fx"]
 [ext_resource type="Script" path="res://entities/hud/minimap_visual.gd" id="13_xwoln"]
+[ext_resource type="Texture2D" uid="uid://5rodiouboce4" path="res://entities/stuff/boulder.png" id="14_01niy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6lh7"]
 normal = Vector2(1, 0)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_t4bx7"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2wkh7"]
+size = Vector2(196, 30)
 
 [node name="World" type="Node2D"]
 visibility_layer = 4293918723
@@ -31,8 +34,10 @@ player = NodePath("../Player")
 finish_pole = NodePath("../FinishPole")
 
 [node name="MenuWin" parent="." instance=ExtResource("2_1i5o3")]
+visible = false
 
 [node name="MenuPause" parent="." instance=ExtResource("7_e7lw4")]
+visible = false
 
 [node name="HUD" parent="." node_paths=PackedStringArray("game_state", "target") instance=ExtResource("1_x35hn")]
 game_state = NodePath("../GameState")
@@ -40,25 +45,20 @@ target = NodePath("../Camera2D")
 
 [node name="Background" parent="." instance=ExtResource("1_cym6x")]
 
-[node name="FinishPole" parent="." node_paths=PackedStringArray("win_layer", "game_state") instance=ExtResource("9_yvkgl")]
+[node name="FinishPole" parent="." node_paths=PackedStringArray("win_layer") instance=ExtResource("9_yvkgl")]
 position = Vector2(14232, 647)
 win_layer = NodePath("../MenuWin")
-game_state = NodePath("../GameState")
 
 [node name="Floor" parent="." instance=ExtResource("1_m4gmm")]
 position = Vector2(0, 647)
 
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
-position = Vector2(216, 320)
+position = Vector2(468, 402)
+rotation = 1.67911
 background = NodePath("../Background")
 
 [node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]
-position = Vector2(1488, 448)
-scale = Vector2(4, 4)
-
-[node name="Boulder" parent="." instance=ExtResource("5_vrlil")]
-position = Vector2(-789, -146)
-rotation = 0.172751
+position = Vector2(1512, 448)
 scale = Vector2(4, 4)
 
 [node name="left invi wall" type="StaticBody2D" parent="."]
@@ -74,6 +74,7 @@ scale = Vector2(5399.01, 69274)
 texture = ExtResource("12_q56fx")
 offset = Vector2(-0.5, 0)
 script = ExtResource("13_xwoln")
+minimap_material = null
 
 [node name="right invi wall" type="StaticBody2D" parent="."]
 visibility_layer = 3
@@ -90,29 +91,47 @@ scale = Vector2(5399.01, 69274)
 texture = ExtResource("12_q56fx")
 offset = Vector2(0.5, 0)
 script = ExtResource("13_xwoln")
+minimap_material = null
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(466.599, 170.878)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+modulate = Color(0.473976, 0.473976, 0.473976, 1)
+z_index = -100
+position = Vector2(-142.599, 371.122)
+rotation = -3.07906
+scale = Vector2(1.97945, 1.97945)
+texture = ExtResource("14_01niy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-12.5995, -3.87793)
+shape = SubResource("RectangleShape2D_2wkh7")
+one_way_collision = true
 
 [node name="Polygon2D" parent="." instance=ExtResource("6_o2gu2")]
-position = Vector2(704, 520)
-polygon = PackedVector2Array(32, 32, -32, 32, -24, -2, 24, -2)
+position = Vector2(662, 528)
+scale = Vector2(0.5, 4)
+polygon = PackedVector2Array(32, 32, -32, 32, -694, 31.5, -806, 33, -1408, 32.75, -1336, -157, -792, -128.25, -690, -113.75, -510, -94.5, -482, -27.75, -442, 26.5, -356, 26.5, -318, -27.75, -288, -94, 30, -124, 100, -114.5, 230, -52.5, 364, 30.75, 274, 31)
 
 [node name="Polygon2D2" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(2496, 408)
-polygon = PackedVector2Array(112, 32, -32, 32, -200, -196, -659, -850, -637, -4719.75, 915.5, -2005.5, 802, -554)
+polygon = PackedVector2Array(112, 42, -32, 42, -200, -196, -659, -850, -637, -4719.75, 916, -2006, 802, -554)
 
 [node name="Polygon2D3" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(3795, 20)
 scale = Vector2(4.34389, 19.875)
-polygon = PackedVector2Array(312.393, 32, -32, 32, 283.617, -31.7987, 312.393, -32, 448.676, -32, 448.676, -21.5346, 312.393, -21.5346, 312.393, -13.8868, 319.76, -13.4843, 321.601, -9.86164, 319.76, -5.43396, 316.076, -1.00629, 306.868, 2.21384, 295.818, 2.21384, 295.818, 5.83648)
+polygon = PackedVector2Array(292.134, 32, -50.4156, 32.4025, 283.617, -31.7987, 312.393, -32, 448.676, -32, 448.676, -21.5346, 312.393, -21.5346, 312.393, -13.8868, 319.76, -13.4843, 321.601, -9.86164, 319.76, -5.43396, 316.076, -1.00629, 306.868, 2.21384, 295.818, 2.21384, 295.818, 6.64151)
 
 [node name="Polygon2D5" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6904, -1704)
 scale = Vector2(4, 42)
-polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.9524, -405.5, 37.0476, -405.25, 35.8095, -409, 34.8571, -420, 32.7619, -256, 32.9524, -32, -23.1824, -310, -23.2381, -306, -32, -188, -141.333, 184, -52, 220, -20.381, 30, -20.381, 14, 38.8571)
+polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.9524, -405.5, 37.0476, -405.25, 35.8095, -409, 34.8571, -420, 32.7619, -256, 32.9524, -206, 20.381, -262, 11.8095, -354, 5.52381, -518, 15.4286, -300, -2.47619, -186, -140.762, 184, -52, 220, -20.381, 60, -20.381, 30, -17.3333, 14, 38.8571)
 
 [node name="Polygon2D6" parent="." instance=ExtResource("6_o2gu2")]
-position = Vector2(6224, 427.948)
+position = Vector2(6224, 424)
 scale = Vector2(35.75, 8.62338)
-polygon = PackedVector2Array(15.6643, 26.6024, -32.3916, 26.5617, -32, -32, -21.035, -32)
+polygon = PackedVector2Array(15.6643, 26.6024, -32.4476, 26.4458, -32, -32, -21.035, -32)
 
 [node name="Polygon2D4" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(7868, -602)

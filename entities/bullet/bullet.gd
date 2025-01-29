@@ -12,11 +12,11 @@ func _physics_process(delta: float) -> void:
 	position += direction * delta * speed
 
 
-func shoot(position: Vector2, rotation: float) -> void:
+func shoot(pos: Vector2, rot: float) -> void:
 	self.process_mode = Node.PROCESS_MODE_INHERIT
 	self.visible = true
-	self.position = position
-	self.rotation = rotation
+	self.position = pos
+	self.rotation = rot
 	self.direction = Vector2(cos(rotation), sin(rotation))
 
 

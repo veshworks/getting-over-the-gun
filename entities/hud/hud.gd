@@ -24,14 +24,14 @@ func _ready() -> void:
 	target_position_old.push_back(target.position)
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	camera_minimap.offset = target.position - target_position_old.back() 
 	camera_minimap.position = target.position
 	target_position_old.push_front(target.position)
 	target_position_old.resize(min(target_position_old.size(), 20))
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	time_display.text = game_state.stopwatch_diplay
 
 func _exit_tree() -> void:

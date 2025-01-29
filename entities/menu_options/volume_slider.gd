@@ -8,5 +8,5 @@ func _ready() -> void:
 	self.value = db_to_linear(AudioServer.get_bus_volume_db(bus_id))
 	self.value_changed.connect(_on_h_slider_value_changed)
 
-func _on_h_slider_value_changed(value: float) -> void:
-	AudioServer.set_bus_volume_db(bus_id, linear_to_db(value))
+func _on_h_slider_value_changed(val: float) -> void:
+	AudioServer.set_bus_volume_db(bus_id, linear_to_db(val))

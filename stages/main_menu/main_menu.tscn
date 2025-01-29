@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://chhvd3mg13636"]
+[gd_scene load_steps=6 format=3 uid="uid://chhvd3mg13636"]
 
 [ext_resource type="Script" path="res://modules/UI/scenes/button_scene_changer.gd" id="1_imig6"]
 [ext_resource type="PackedScene" uid="uid://btmi35wugb25k" path="res://stages/world/world.tscn" id="2_fvjwa"]
 [ext_resource type="PackedScene" uid="uid://bgsjtpboxq766" path="res://entities/menu_options/menu_options.tscn" id="3_f1hhg"]
+[ext_resource type="PackedScene" uid="uid://clmjafbjcwfqm" path="res://stages/credits/credits.tscn" id="3_gvqs1"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_pnqu5"]
 font_size = 36
@@ -42,6 +43,12 @@ layout_mode = 2
 text = "Play"
 script = ExtResource("1_imig6")
 scene = ExtResource("2_fvjwa")
+
+[node name="ButtonCredits" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+script = ExtResource("1_imig6")
+scene = ExtResource("3_gvqs1")
 
 [node name="MenuOptions" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("3_f1hhg")]
 layout_mode = 2

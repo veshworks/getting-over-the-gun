@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CreditsMember" load_steps=2 format=3 uid="uid://c0ymqljiwtec8"]
+
+[ext_resource type="Script" path="res://modules/UI/credits_roll/credits_member.gd" id="1_brrcg"]
+
+[resource]
+script = ExtResource("1_brrcg")
+name = "vhoyer"
+job = ""

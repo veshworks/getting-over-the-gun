@@ -1,0 +1,50 @@
+[gd_resource type="Resource" script_class="CreditsContent" load_steps=13 format=3 uid="uid://dgisfqm8b8ui"]
+
+[ext_resource type="Script" path="res://modules/UI/credits_roll/credtis_content.gd" id="1_le8rw"]
+[ext_resource type="Script" path="res://modules/UI/credits_roll/credits_block.gd" id="2_ywvk1"]
+[ext_resource type="Script" path="res://modules/UI/credits_roll/credits_member.gd" id="3_xgor2"]
+[ext_resource type="Resource" uid="uid://c0ymqljiwtec8" path="res://stages/credits/content_vhoyer.tres" id="4_qdpt0"]
+
+[sub_resource type="Resource" id="Resource_dltu3"]
+script = ExtResource("2_ywvk1")
+title = "Game Design"
+members = Array[ExtResource("3_xgor2")]([ExtResource("4_qdpt0")])
+
+[sub_resource type="Resource" id="Resource_4hdyj"]
+script = ExtResource("3_xgor2")
+name = "Kriptz Company"
+job = ""
+
+[sub_resource type="Resource" id="Resource_e1mmg"]
+script = ExtResource("2_ywvk1")
+title = "Art"
+members = Array[ExtResource("3_xgor2")]([ExtResource("4_qdpt0"), SubResource("Resource_4hdyj")])
+
+[sub_resource type="Resource" id="Resource_nnniy"]
+script = ExtResource("3_xgor2")
+name = "AndreCesarDel"
+job = "Game Tester"
+
+[sub_resource type="Resource" id="Resource_rhtti"]
+script = ExtResource("3_xgor2")
+name = "Ana"
+job = "Game Tester"
+
+[sub_resource type="Resource" id="Resource_jk2lj"]
+script = ExtResource("3_xgor2")
+name = "Adriano"
+job = "Game Tester"
+
+[sub_resource type="Resource" id="Resource_ytj5s"]
+script = ExtResource("3_xgor2")
+name = "Caio"
+job = "Game Tester"
+
+[sub_resource type="Resource" id="Resource_3768n"]
+script = ExtResource("2_ywvk1")
+title = "Special Thanks"
+members = Array[ExtResource("3_xgor2")]([SubResource("Resource_nnniy"), SubResource("Resource_rhtti"), SubResource("Resource_jk2lj"), SubResource("Resource_ytj5s")])
+
+[resource]
+script = ExtResource("1_le8rw")
+sections = Array[ExtResource("2_ywvk1")]([SubResource("Resource_dltu3"), SubResource("Resource_e1mmg"), SubResource("Resource_3768n")])

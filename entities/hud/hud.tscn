@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c25myhtldtedb"]
+[gd_scene load_steps=6 format=3 uid="uid://c25myhtldtedb"]
 
 [ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_iwr0u"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_vybyb"]
-font_size = 32
-outline_size = 2
-outline_color = Color(0, 0, 0, 1)
+[ext_resource type="LabelSettings" uid="uid://c26e5hdbirjku" path="res://entities/hud/hud_label_settings.tres" id="2_mpref"]
+[ext_resource type="Texture2D" uid="uid://dfejpy3w0jgei" path="res://entities/hud/bullet_icon.png" id="2_n6x37"]
+[ext_resource type="Script" path="res://entities/hud/shoot_count.gd" id="3_unuy6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xivm6"]
 bg_color = Color(0, 0, 0, 0.247059)
@@ -21,13 +19,34 @@ offset_left = -33.0
 offset_bottom = 55.0
 grow_horizontal = 0
 
-[node name="TimeDisplay" type="Label" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ShootCount" type="Label" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "∞-%d/∞"
+label_settings = ExtResource("2_mpref")
+script = ExtResource("3_unuy6")
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("2_n6x37")
+
+[node name="TimeDisplay" type="Label" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "00:00:00"
-label_settings = SubResource("LabelSettings_vybyb")
+label_settings = ExtResource("2_mpref")
 
-[node name="Timer" type="Timer" parent="MarginContainer/TimeDisplay"]
+[node name="Timer" type="Timer" parent="MarginContainer/HBoxContainer/TimeDisplay"]
 wait_time = 0.2
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]

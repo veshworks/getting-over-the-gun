@@ -4,7 +4,7 @@ class_name MinimapObjectivePin
 
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if !HUD.singleton: return
 	var parent = get_parent()
 	var camera = HUD.camera

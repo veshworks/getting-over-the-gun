@@ -22,11 +22,13 @@ extends StaticBody2D
 				remove_child(child)
 		for i in range(my_polygon.polygons.size()):
 			var my_collision = CollisionPolygon2D.new()
+			self.add_child(my_collision, false, Node.INTERNAL_MODE_DISABLED)
 			my_collision.set_polygon(my_polygon.polygons[i])
-			my_collision.position -= Vector2((texture.get_width() / 2) + offsetX, (texture.get_height() / 2) + offsetY) * scale.x
+			my_collision.position -= Vector2((texture.get_width() / 2.0) + offsetX, (texture.get_height() / 2.0) + offsetY) * scale.x
 			my_collision.scale = scale
 			my_collision.owner = self
-			self.add_child(my_collision, true, Node.INTERNAL_MODE_DISABLED)
 
-func update_sprite_texture(texture: Texture2D) -> void:
-	$Sprite2D.set_deferred("texture", texture)
+func update_sprite_texture(tex: Texture2D) -> void:
+	$Sprite2D.set_deferred("texture", tex)
+	if $minimap:
+		$minimap.set_deferred("texture", tex)

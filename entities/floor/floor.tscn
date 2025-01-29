@@ -13,6 +13,7 @@ visibility_layer = 2
 z_index = -10
 polygon = PackedVector2Array(-127008, 0, -116935, 66962, 306318, 67285, 308984, 0)
 script = ExtResource("1_xrrxo")
+minimap_material = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_8hoej")

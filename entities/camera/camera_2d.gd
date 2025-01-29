@@ -29,6 +29,5 @@ func _ready() -> void:
 	await tween.finished
 	self.position_smoothing_enabled = true
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	self.position = target.position
-	pass

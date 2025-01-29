@@ -17,7 +17,7 @@ func _button_up() -> void:
 	if has_scene_manager:
 		var mngr = SceneManager.singleton
 		if go_back:
-			mngr.go_back(go_back_by)
+			SceneManager.go_back(go_back_by)
 		else:
 			mngr.change_scene_to_packed(scene)
 	else:
