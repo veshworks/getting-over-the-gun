@@ -1,12 +1,19 @@
-[gd_scene load_steps=7 format=3 uid="uid://c25myhtldtedb"]
+[gd_scene load_steps=16 format=3 uid="uid://c25myhtldtedb"]
 
 [ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_iwr0u"]
 [ext_resource type="LabelSettings" uid="uid://c26e5hdbirjku" path="res://entities/hud/hud_label_settings.tres" id="2_mpref"]
 [ext_resource type="Texture2D" uid="uid://dfejpy3w0jgei" path="res://entities/hud/bullet_icon.png" id="2_n6x37"]
 [ext_resource type="Script" path="res://entities/hud/shoot_count.gd" id="3_unuy6"]
+[ext_resource type="Shader" path="res://entities/hud/faded_edges.gdshader" id="5_3nph0"]
+[ext_resource type="Texture2D" uid="uid://dldy8l5ec6rlk" path="res://entities/hud/mouse_left.svg" id="5_wit0y"]
+[ext_resource type="Texture2D" uid="uid://c14a2ps7qtcva" path="res://entities/hud/keyboard_a.svg" id="6_b8kyr"]
+[ext_resource type="Script" path="res://entities/hud/tutorial.gd" id="6_e5lj2"]
+[ext_resource type="Texture2D" uid="uid://bkarooo5gh5i7" path="res://entities/hud/keyboard_d.svg" id="7_48ial"]
+[ext_resource type="Texture2D" uid="uid://b8qjg336lsx31" path="res://entities/hud/keyboard_r.svg" id="8_we5at"]
+[ext_resource type="Texture2D" uid="uid://dxyby3avjiepu" path="res://entities/hud/keyboard_escape.svg" id="9_x7mup"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xivm6"]
-bg_color = Color(0, 0, 0, 0.247059)
+bg_color = Color(0, 0, 0, 0.392157)
 
 [sub_resource type="GDScript" id="GDScript_wmxua"]
 script/source = "extends Label
@@ -45,6 +52,11 @@ func timout():
 	time_avg = 0
 	timer = null
 "
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2fsvf"]
+shader = ExtResource("5_3nph0")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxitu"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_iwr0u")
@@ -129,5 +141,78 @@ layout_mode = 2
 label_settings = ExtResource("2_mpref")
 script = SubResource("GDScript_wmxua")
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3"]
+[node name="Tutorial" type="PanelContainer" parent="."]
+material = SubResource("ShaderMaterial_2fsvf")
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -96.0
+offset_right = 880.0
+grow_vertical = 0
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(0, 96)
+theme_override_styles/panel = SubResource("StyleBoxFlat_nxitu")
+script = ExtResource("6_e5lj2")
+
+[node name="Timer" type="Timer" parent="Tutorial"]
+wait_time = 2.5
+one_shot = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="Tutorial"]
 layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/MarginContainer4"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Tutorial/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_wit0y")
+
+[node name="Label" type="Label" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Shoot"
+label_settings = ExtResource("2_mpref")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Tutorial/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("6_b8kyr")
+
+[node name="TextureRect3" type="TextureRect" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("7_48ial")
+
+[node name="Label2" type="Label" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Rotate"
+label_settings = ExtResource("2_mpref")
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Tutorial/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("8_we5at")
+
+[node name="Label3" type="Label" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer3"]
+layout_mode = 2
+text = "Nudge"
+label_settings = ExtResource("2_mpref")
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Tutorial/MarginContainer4/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("9_x7mup")
+
+[node name="Label5" type="Label" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer4"]
+layout_mode = 2
+text = "Pause Menu"
+label_settings = ExtResource("2_mpref")

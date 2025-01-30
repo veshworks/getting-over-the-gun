@@ -19,6 +19,7 @@ script = ExtResource("2_ssvlu")
 minimap_material = null
 
 [node name="PoligonStuff" type="StaticBody2D" parent="."]
+visible = false
 
 [node name="Collider" type="CollisionPolygon2D" parent="PoligonStuff"]
 unique_name_in_owner = true

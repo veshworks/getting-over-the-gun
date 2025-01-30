@@ -1,6 +1,8 @@
 extends Node
 class_name GameState
 
+@export var player: Player
+
 static var singleton: GameState:
 	set(value):
 		if singleton and value != null:

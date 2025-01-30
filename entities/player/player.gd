@@ -53,3 +53,10 @@ func _process(_delta: float) -> void:
 
 func _on_body_entered(_body: Node) -> void:
 	ground_hit_audio_stream_player_pool.play_immediately()
+
+func is_idle() -> bool:
+	var do_round = func(f: float) -> int:
+		return roundi(f * 1000)
+	var linear = do_round.call(self.linear_velocity.length())
+	var angular = do_round.call(self.angular_velocity)
+	return linear == 0 and angular == 0
