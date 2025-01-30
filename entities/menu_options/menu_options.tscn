@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bgsjtpboxq766"]
+[gd_scene load_steps=2 format=3 uid="uid://bgsjtpboxq766"]
 
 [ext_resource type="Script" path="res://entities/menu_options/volume_slider.gd" id="1_p7g6n"]
-[ext_resource type="Script" path="res://entities/menu_options/debug.gd" id="2_to7id"]
-[ext_resource type="Script" path="res://entities/menu_options/slider_label.gd" id="3_fts4q"]
 
 [node name="MenuOptions" type="VBoxContainer"]
 custom_minimum_size = Vector2(200, 0)
@@ -10,98 +8,51 @@ theme_override_constants/separation = 32
 
 [node name="Sound" type="VBoxContainer" parent="."]
 layout_mode = 2
+theme_override_constants/separation = 12
 
 [node name="Sound" type="Label" parent="Sound"]
 layout_mode = 2
 text = "Sound"
+horizontal_alignment = 1
 
-[node name="Label" type="Label" parent="Sound"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Sound"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Sound/VBoxContainer"]
 layout_mode = 2
 text = "Master Volume"
 
-[node name="VolumeSlider" type="HSlider" parent="Sound"]
+[node name="VolumeSlider" type="HSlider" parent="Sound/VBoxContainer"]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 script = ExtResource("1_p7g6n")
 bus = &"Master"
 
-[node name="Label2" type="Label" parent="Sound"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="Sound"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Sound/VBoxContainer2"]
 layout_mode = 2
 text = "BGM Volume"
 
-[node name="VolumeSlider2" type="HSlider" parent="Sound"]
+[node name="VolumeSlider2" type="HSlider" parent="Sound/VBoxContainer2"]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 script = ExtResource("1_p7g6n")
 bus = &"BGM"
 
-[node name="Label3" type="Label" parent="Sound"]
+[node name="VBoxContainer3" type="VBoxContainer" parent="Sound"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Sound/VBoxContainer3"]
 layout_mode = 2
 text = "SFX Volume"
 
-[node name="VolumeSlider3" type="HSlider" parent="Sound"]
+[node name="VolumeSlider3" type="HSlider" parent="Sound/VBoxContainer3"]
 layout_mode = 2
 max_value = 1.0
 step = 0.05
 script = ExtResource("1_p7g6n")
 bus = &"SFX"
-
-[node name="Debug" type="VBoxContainer" parent="."]
-unique_name_in_owner = true
-layout_mode = 2
-script = ExtResource("2_to7id")
-
-[node name="Title" type="Label" parent="Debug"]
-layout_mode = 2
-text = "DEBUG MENU"
-
-[node name="Label" type="Label" parent="Debug"]
-layout_mode = 2
-text = "angular_damp"
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Debug"]
-layout_mode = 2
-
-[node name="AngularDamp" type="HSlider" parent="Debug/HBoxContainer" node_paths=PackedStringArray("label")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 10.0
-step = 0.1
-script = ExtResource("3_fts4q")
-label = NodePath("../Label")
-
-[node name="Label" type="Label" parent="Debug/HBoxContainer"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-text = "100"
-horizontal_alignment = 2
-
-[node name="Label2" type="Label" parent="Debug"]
-layout_mode = 2
-text = "bullet_force"
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Debug"]
-layout_mode = 2
-
-[node name="BulletForce" type="HSlider" parent="Debug/HBoxContainer2" node_paths=PackedStringArray("label")]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 4
-max_value = 2000.0
-step = 10.0
-script = ExtResource("3_fts4q")
-label = NodePath("../Label")
-
-[node name="Label" type="Label" parent="Debug/HBoxContainer2"]
-custom_minimum_size = Vector2(40, 0)
-layout_mode = 2
-text = "100"
-horizontal_alignment = 2
-
-[connection signal="value_changed" from="Debug/HBoxContainer/AngularDamp" to="Debug" method="_on_angular_damp_value_changed"]
-[connection signal="value_changed" from="Debug/HBoxContainer2/BulletForce" to="Debug" method="_on_bullet_force_value_changed"]

@@ -14,16 +14,16 @@ height_max = 36000.0
 height_min = 612.0
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+unique_name_in_owner = true
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.1, 0.2)
-motion_offset = Vector2(400, 0)
-motion_mirroring = Vector2(2704, 0)
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.03, 0.03)
+motion_mirroring = Vector2(2506, 0)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
-scale = Vector2(4, 4)
-texture = ExtResource("2_x5l21")
-centered = false
+[node name="Sprite2D2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(654, 152)
+scale = Vector2(2, 2)
+texture = ExtResource("3_6rwww")
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.02, 0.02)
@@ -39,6 +39,16 @@ position = Vector2(3365, -63)
 scale = Vector2(4, 4)
 texture = ExtResource("4_eecw1")
 
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.2)
+motion_offset = Vector2(400, 0)
+motion_mirroring = Vector2(2704, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(4, 4)
+texture = ExtResource("2_x5l21")
+centered = false
+
 [node name="TextureRect" type="TextureRect" parent="ParallaxBackground"]
 unique_name_in_owner = true
 z_index = -4096
@@ -53,3 +63,4 @@ offset_bottom = -0.5
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_o3j6h")
+metadata/_edit_lock_ = true

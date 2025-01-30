@@ -38,11 +38,21 @@ custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="ButtonPlay" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ButtonPlayNormal" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
-text = "Play"
+text = "Play (Normal)"
 script = ExtResource("1_imig6")
 scene = ExtResource("2_fvjwa")
+
+[node name="ButtonPlayHard" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play (Hard)"
+script = ExtResource("1_imig6")
+scene = ExtResource("2_fvjwa")
+payloads = {
+"angular_damp": 1.6,
+"bullet_force": 400.0
+}
 
 [node name="ButtonCredits" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2

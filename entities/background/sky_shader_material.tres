@@ -4,7 +4,7 @@
 
 [resource]
 shader = ExtResource("1_b1amn")
-shader_parameter/height = 0.573
+shader_parameter/height = 0.0
 shader_parameter/variation = 4.0
 shader_parameter/floor_color = Color(0.339608, 0.542633, 1, 1)
 shader_parameter/sky_color = Color(0, 0, 0.111864, 1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://c25myhtldtedb"]
+[gd_scene load_steps=7 format=3 uid="uid://c25myhtldtedb"]
 
 [ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_iwr0u"]
 [ext_resource type="LabelSettings" uid="uid://c26e5hdbirjku" path="res://entities/hud/hud_label_settings.tres" id="2_mpref"]
@@ -7,6 +7,44 @@
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xivm6"]
 bg_color = Color(0, 0, 0, 0.247059)
+
+[sub_resource type="GDScript" id="GDScript_wmxua"]
+script/source = "extends Label
+
+var timer
+var time_since:= 0.0
+var time_rec: Array[float]= []
+var time_avg:= 0.0
+
+func _ready() -> void:
+	self.visible = false
+
+func _physics_process(delta: float) -> void:
+	time_since += delta
+
+func _process(_delta: float) -> void:
+	self.text = str(time_avg)
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(\"debug\"):
+		self.visible = !self.visible
+		
+	if event.is_action_pressed(\"shoot\"):
+		if time_since < 1000:
+			time_rec.push_front(time_since)
+		time_since = 0
+		time_rec.resize(min(time_rec.size(), 20))
+		time_avg = time_rec.reduce(func(acc, cur): return acc + cur) / time_rec.size()
+		
+		if timer: timer.timeout.disconnect(timout)
+		timer = get_tree().create_timer(3)
+		timer.timeout.connect(timout)
+
+func timout():
+	time_rec.resize(0)
+	time_avg = 0
+	timer = null
+"
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_iwr0u")
@@ -19,10 +57,19 @@ offset_left = -33.0
 offset_bottom = 55.0
 grow_horizontal = 0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 32
 alignment = 2
+
+[node name="TimeDisplay" type="Label" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "00:00:00"
+label_settings = ExtResource("2_mpref")
+horizontal_alignment = 2
+
+[node name="Timer" type="Timer" parent="MarginContainer/HBoxContainer/TimeDisplay"]
+wait_time = 0.2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -39,15 +86,6 @@ script = ExtResource("3_unuy6")
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("2_n6x37")
-
-[node name="TimeDisplay" type="Label" parent="MarginContainer/HBoxContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "00:00:00"
-label_settings = ExtResource("2_mpref")
-
-[node name="Timer" type="Timer" parent="MarginContainer/HBoxContainer/TimeDisplay"]
-wait_time = 0.2
 
 [node name="MarginContainer2" type="MarginContainer" parent="."]
 offset_right = 32.0
@@ -74,3 +112,19 @@ render_target_update_mode = 4
 unique_name_in_owner = true
 visibility_layer = 2
 zoom = Vector2(0.05, 0.05)
+
+[node name="MarginContainer3" type="MarginContainer" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -32.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label" type="Label" parent="MarginContainer3"]
+layout_mode = 2
+label_settings = ExtResource("2_mpref")
+script = SubResource("GDScript_wmxua")

@@ -12,6 +12,7 @@ script = ExtResource("1_shfnj")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -23,12 +24,28 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 32
 
 [node name="MenuOptions" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("1_li6ap")]
 layout_mode = 2
 
-[node name="ButtonSceneChanger" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ButtonSceneChanger" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "Main Menu"
 script = ExtResource("2_en4ax")
 go_back = true
+
+[node name="Restart" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+
+[node name="Resume" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Continue"
+
+[connection signal="button_down" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_button_down"]
+[connection signal="button_down" from="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Resume" to="." method="_on_button_button_down"]

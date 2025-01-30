@@ -23,5 +23,7 @@ const minimap_layer = 1 << 1
 			parent = parent.get_parent()
 
 func _ready() -> void:
+	if !Engine.is_editor_hint():
+		self.visible = true
 	self.visibility_layer |= minimap_layer
 	self.material = minimap_material

@@ -19,11 +19,8 @@ var bullet_momentum = Vector2.ZERO
 var bullet_pool: Array[Bullet]
 
 func _ready() -> void:
-	SceneManager.singleton.payload_updated.connect(func(key):
-		match key:
-			'angular_damp', 'bullet_force':
-				self[key] = SceneManager.get_payload(key)
-		)
+	self.angular_damp = SceneManager.get_payload('angular_damp', self.angular_damp)
+	self.bullet_force = SceneManager.get_payload('bullet_force', self.bullet_force)
 	
 	while bullet_pool.size() < 20:
 		var inst = bullet_scene.instantiate() as Bullet
@@ -39,7 +36,10 @@ func _physics_process(_delta: float) -> void:
 		bullet.shoot(bullet_origin.global_position, self.rotation)
 		bullet_pool.push_front(bullet)
 		gun_shot_sound_player.play_immediately()
-		self.apply_impulse((bullet.direction * -1) * bullet_force, force_origin.position)
+		self.apply_impulse(
+			(bullet.direction * -1) * bullet_force,
+			force_origin.position
+		)
 	
 	if Input.is_action_just_pressed("nudge"):
 		var up = get_gravity().normalized() * -1

@@ -1,12 +1,16 @@
-[gd_scene load_steps=4 format=3 uid="uid://cuxnlwi7cy1vx"]
+[gd_scene load_steps=5 format=3 uid="uid://cuxnlwi7cy1vx"]
 
 [ext_resource type="Script" path="res://modules/UI/scenes/scene_manager.gd" id="1_nciko"]
 [ext_resource type="PackedScene" uid="uid://chhvd3mg13636" path="res://stages/main_menu/main_menu.tscn" id="2_m8a0y"]
 [ext_resource type="AudioStream" uid="uid://cpbgl82k135m4" path="res://assets/bgm.ogg" id="3_hagkj"]
+[ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="3_y74q2"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_nciko")
 main_scene = ExtResource("2_m8a0y")
+
+[node name="Background" parent="." instance=ExtResource("3_y74q2")]
+do_auto_scroll = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 process_mode = 3

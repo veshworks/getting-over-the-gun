@@ -9,6 +9,7 @@
 visibility_layer = 3
 
 [node name="Minimap" type="Polygon2D" parent="."]
+visible = false
 visibility_layer = 2
 z_index = -10
 polygon = PackedVector2Array(-127008, 0, -116935, 66962, 306318, 67285, 308984, 0)
