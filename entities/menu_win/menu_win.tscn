@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://btkaw746istgf"]
+[gd_scene load_steps=5 format=3 uid="uid://btkaw746istgf"]
 
 [ext_resource type="Script" path="res://entities/menu_win/menu_win.gd" id="1_bus3q"]
 [ext_resource type="Script" path="res://modules/UI/scenes/button_scene_changer.gd" id="2_5c6ev"]
+[ext_resource type="Script" path="res://modules/UI/components/component_anti_spam.gd" id="3_6c0ay"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_d17cj"]
 font_size = 32
@@ -49,3 +50,7 @@ layout_mode = 2
 text = "Main Menu"
 script = ExtResource("2_5c6ev")
 go_back = true
+
+[node name="ComponentAntiSpam" type="Node" parent="CenterContainer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/ButtonSceneChanger"]
+process_mode = 3
+script = ExtResource("3_6c0ay")

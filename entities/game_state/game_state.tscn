@@ -1,6 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://clmmyo7s7b3md"]
+[gd_scene load_steps=6 format=3 uid="uid://clmmyo7s7b3md"]
 
 [ext_resource type="Script" path="res://entities/game_state/game_state.gd" id="1_h6sh5"]
+[ext_resource type="Script" path="res://entities/game_state/restart_detector.gd" id="2_am0ww"]
+[ext_resource type="Script" path="res://entities/game_state/restart.gd" id="3_onk6o"]
+[ext_resource type="Script" path="res://modules/UI/components/component_anti_spam.gd" id="4_uwx2h"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1us72"]
+font_size = 18
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_h6sh5")
+
+[node name="RestartDetector" type="Node" parent="."]
+script = ExtResource("2_am0ww")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="RestartDetector"]
+process_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="RestartDetector/CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="RestartDetector/CanvasLayer/CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="RestartDetector/CanvasLayer/CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RestartDetector/CanvasLayer/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="Label" type="Label" parent="RestartDetector/CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Life, sometimes, isn't fair;
+This is one of those times."
+label_settings = SubResource("LabelSettings_1us72")
+horizontal_alignment = 1
+
+[node name="Restart" type="Button" parent="RestartDetector/CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Restart"
+script = ExtResource("3_onk6o")
+
+[node name="ComponentAntiSpam" type="Node" parent="RestartDetector/CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Restart"]
+process_mode = 3
+script = ExtResource("4_uwx2h")
