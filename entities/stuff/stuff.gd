@@ -24,7 +24,7 @@ extends StaticBody2D
 			var my_collision = CollisionPolygon2D.new()
 			self.add_child(my_collision, false, Node.INTERNAL_MODE_DISABLED)
 			my_collision.set_polygon(my_polygon.polygons[i])
-			my_collision.position -= Vector2((texture.get_width() / 2.0) + offsetX, (texture.get_height() / 2.0) + offsetY) * scale.x
+			my_collision.position -= Vector2((texture.get_width() / 2.0) + offsetX, texture.get_height() + offsetY) * scale.x
 			my_collision.scale = scale
 			my_collision.owner = self
 

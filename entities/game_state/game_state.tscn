@@ -16,6 +16,7 @@ script = ExtResource("2_am0ww")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="RestartDetector"]
 process_mode = 2
+visible = false
 
 [node name="CenterContainer" type="CenterContainer" parent="RestartDetector/CanvasLayer"]
 anchors_preset = 15

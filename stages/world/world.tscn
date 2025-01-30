@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=19 format=3 uid="uid://btmi35wugb25k"]
 
 [ext_resource type="PackedScene" uid="uid://clmmyo7s7b3md" path="res://entities/game_state/game_state.tscn" id="1_2oati"]
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://bncqep4ekfw5l" path="res://assets/white_pixel.png" id="12_q56fx"]
 [ext_resource type="Script" path="res://entities/hud/minimap_visual.gd" id="13_xwoln"]
 [ext_resource type="Texture2D" uid="uid://5rodiouboce4" path="res://entities/stuff/boulder.png" id="14_01niy"]
+[ext_resource type="Texture2D" uid="uid://bqgpmywwo7rj" path="res://entities/stuff/dead_tree.png" id="15_w1304"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6lh7"]
 normal = Vector2(1, 0)
@@ -115,7 +116,7 @@ shape = SubResource("RectangleShape2D_2wkh7")
 one_way_collision = true
 
 [node name="CavernBush" parent="." instance=ExtResource("4_xfrrw")]
-position = Vector2(1512, 448)
+position = Vector2(1533, 660)
 scale = Vector2(4, 4)
 
 [node name="CavernBigCeiling" parent="." instance=ExtResource("6_o2gu2")]
@@ -145,4 +146,11 @@ polygon = PackedVector2Array(33, 31.7083, -31, 31.7083, -31, -31.8097, 33, -31.8
 [node name="TreeBig" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(8720, -602)
 scale = Vector2(4, 39.4219)
+texture = ExtResource("15_w1304")
 polygon = PackedVector2Array(503, 31.9112, 499, -63.0614, 151, -101.822, 191, -100.401, 500.319, -69.1899, 479, -128.203, 495, -123.13, 523.417, -90.7495, 657, -114.809, 699, -118.665, 537, -79.2961, 551, -64.0761, 556.749, -48.7314, 815, -68.7436, 875, -71.3817, 563.2, -41.9564, 577, 5.32699, 595, 31.7083)
+
+[node name="DeadTree" type="Sprite2D" parent="TreeBig"]
+position = Vector2(546.5, 31.7083)
+scale = Vector2(1.88375, 0.191137)
+texture = ExtResource("15_w1304")
+offset = Vector2(-17.98, -417.035)

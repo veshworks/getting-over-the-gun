@@ -10,4 +10,4 @@ func _exit_tree() -> void:
 
 func display(time: String) -> void:
 	self.visible = true
-	%Time.text = %Time.text % time
+	%Time.text = %Time.text % [time, SceneManager.get_payload('difficulty')]

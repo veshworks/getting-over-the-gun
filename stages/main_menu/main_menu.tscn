@@ -49,7 +49,8 @@ script = ExtResource("1_imig6")
 scene = ExtResource("2_fvjwa")
 payloads = {
 "angular_damp": 7.0,
-"bullet_force": 700.0
+"bullet_force": 700.0,
+"difficulty": "easy"
 }
 
 [node name="ButtonPlayNormal" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
@@ -59,7 +60,8 @@ script = ExtResource("1_imig6")
 scene = ExtResource("2_fvjwa")
 payloads = {
 "angular_damp": 2.0,
-"bullet_force": 400.0
+"bullet_force": 400.0,
+"difficulty": "normal"
 }
 
 [node name="ButtonPlayHard" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/VBoxContainer"]
@@ -69,7 +71,8 @@ script = ExtResource("1_imig6")
 scene = ExtResource("2_fvjwa")
 payloads = {
 "angular_damp": 1.0,
-"bullet_force": 300.0
+"bullet_force": 300.0,
+"difficulty": "hard"
 }
 
 [node name="ButtonCredits" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
