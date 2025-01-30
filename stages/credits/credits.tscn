@@ -7,15 +7,25 @@
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_y5i34")
 
+[node name="Panel" type="Panel" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="CreditsRoll" type="ScrollContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scroll_vertical = 615
 vertical_scroll_mode = 3
 script = ExtResource("1_hwcgf")
 content = ExtResource("2_puehk")
 credits_duration = 10.0
+scroll_vertical_ratio = 0.473441
 
 [connection signal="credits_end" from="CreditsRoll" to="." method="_on_credits_roll_credits_end"]
