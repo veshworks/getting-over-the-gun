@@ -1,19 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://clmjafbjcwfqm"]
+[gd_scene load_steps=6 format=3 uid="uid://clmjafbjcwfqm"]
 
 [ext_resource type="Script" path="res://modules/UI/credits_roll/credits_roll.gd" id="1_hwcgf"]
 [ext_resource type="Script" path="res://stages/credits/credits.gd" id="1_y5i34"]
+[ext_resource type="Texture2D" uid="uid://cdsfgydyx1air" path="res://stages/credits/bg.png" id="2_6fu7y"]
 [ext_resource type="Resource" uid="uid://dgisfqm8b8ui" path="res://stages/credits/content.tres" id="2_puehk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ioaib"]
+texture = ExtResource("2_6fu7y")
+axis_stretch_vertical = 1
 
 [node name="Credits" type="CanvasLayer"]
 script = ExtResource("1_y5i34")
 
 [node name="Panel" type="Panel" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_ioaib")
 
 [node name="CreditsRoll" type="ScrollContainer" parent="."]
 anchors_preset = 15
@@ -21,11 +26,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-scroll_vertical = 615
+scroll_vertical = 645
 vertical_scroll_mode = 3
 script = ExtResource("1_hwcgf")
 content = ExtResource("2_puehk")
 credits_duration = 10.0
-scroll_vertical_ratio = 0.473441
+scroll_vertical_ratio = 0.477424
 
 [connection signal="credits_end" from="CreditsRoll" to="." method="_on_credits_roll_credits_end"]

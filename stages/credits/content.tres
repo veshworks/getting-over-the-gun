@@ -22,7 +22,7 @@ members = Array[ExtResource("3_xgor2")]([SubResource("Resource_a8xuy"), SubResou
 
 [sub_resource type="Resource" id="Resource_jk2lj"]
 script = ExtResource("3_xgor2")
-name = "Adriano"
+name = "SrCoxinhaJr"
 jobs = null
 
 [sub_resource type="Resource" id="Resource_rhtti"]

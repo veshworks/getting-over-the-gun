@@ -128,3 +128,6 @@ grow_vertical = 0
 layout_mode = 2
 label_settings = ExtResource("2_mpref")
 script = SubResource("GDScript_wmxua")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer3"]
+layout_mode = 2
