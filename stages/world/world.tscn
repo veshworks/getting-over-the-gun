@@ -57,10 +57,6 @@ position = Vector2(468, 402)
 rotation = 1.67911
 background = NodePath("../Background")
 
-[node name="Stuff3" parent="." instance=ExtResource("4_xfrrw")]
-position = Vector2(1512, 448)
-scale = Vector2(4, 4)
-
 [node name="left invi wall" type="StaticBody2D" parent="."]
 visibility_layer = 4293918723
 
@@ -95,10 +91,16 @@ offset = Vector2(0.5, 0)
 script = ExtResource("13_xwoln")
 minimap_material = null
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(466.599, 170.878)
+[node name="CavernBoulderHole" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(662, 528)
+scale = Vector2(0.5, 4)
+polygon = PackedVector2Array(32, 32, -32, 32, -694, 31.5, -806, 33, -1408, 32.75, -1336, -157, -792, -128.25, -690, -113.75, -510, -94.5, -482, -27.75, -442, 26.5, -356, 26.5, -318, -27.75, -288, -94, 30, -124, 100, -114.5, 230, -52.5, 364, 30.75, 274, 31)
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="StaticBody2D" type="StaticBody2D" parent="CavernBoulderHole"]
+position = Vector2(-390.802, -89.2805)
+scale = Vector2(2, 0.25)
+
+[node name="Sprite2D" type="Sprite2D" parent="CavernBoulderHole/StaticBody2D"]
 modulate = Color(0.473976, 0.473976, 0.473976, 1)
 z_index = -100
 position = Vector2(-142.599, 371.122)
@@ -106,41 +108,40 @@ rotation = -3.07906
 scale = Vector2(1.97945, 1.97945)
 texture = ExtResource("14_01niy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CavernBoulderHole/StaticBody2D"]
 position = Vector2(-12.5995, -3.87793)
 shape = SubResource("RectangleShape2D_2wkh7")
 one_way_collision = true
 
-[node name="Polygon2D" parent="." instance=ExtResource("6_o2gu2")]
-position = Vector2(662, 528)
-scale = Vector2(0.5, 4)
-polygon = PackedVector2Array(32, 32, -32, 32, -694, 31.5, -806, 33, -1408, 32.75, -1336, -157, -792, -128.25, -690, -113.75, -510, -94.5, -482, -27.75, -442, 26.5, -356, 26.5, -318, -27.75, -288, -94, 30, -124, 100, -114.5, 230, -52.5, 364, 30.75, 274, 31)
+[node name="CavernBush" parent="." instance=ExtResource("4_xfrrw")]
+position = Vector2(1512, 448)
+scale = Vector2(4, 4)
 
-[node name="Polygon2D2" parent="." instance=ExtResource("6_o2gu2")]
+[node name="CavernBigCeiling" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(2496, 408)
 polygon = PackedVector2Array(112, 42, -32, 42, -200, -196, -659, -850, -637, -4719.75, 916, -2006, 802, -554)
 
-[node name="Polygon2D3" parent="." instance=ExtResource("6_o2gu2")]
+[node name="CavernRamp" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(3795, 20)
 scale = Vector2(4.34389, 19.875)
 polygon = PackedVector2Array(292.134, 32, -50.4156, 32.4025, 283.617, -31.7987, 312.393, -32, 448.676, -32, 448.676, -21.5346, 312.393, -21.5346, 312.393, -13.8868, 319.76, -13.4843, 321.601, -9.86164, 319.76, -5.43396, 316.076, -1.00629, 306.868, 2.21384, 295.818, 2.21384, 295.818, 6.64151)
 
-[node name="Polygon2D5" parent="." instance=ExtResource("6_o2gu2")]
+[node name="CavernEntrance" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6904, -1704)
 scale = Vector2(4, 42)
 polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.9524, -405.5, 37.0476, -405.25, 35.8095, -409, 34.8571, -420, 32.7619, -256, 32.9524, -206, 20.381, -262, 11.8095, -354, 5.52381, -518, 15.4286, -300, -2.47619, -186, -140.762, 184, -52, 220, -20.381, 60, -20.381, 30, -17.3333, 14, 38.8571)
 
-[node name="Polygon2D6" parent="." instance=ExtResource("6_o2gu2")]
+[node name="CavernEntranceFloor" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6224, 424)
 scale = Vector2(35.75, 8.62338)
 polygon = PackedVector2Array(15.6643, 26.6024, -32.4476, 26.4458, -32, -32, -21.035, -32)
 
-[node name="Polygon2D4" parent="." instance=ExtResource("6_o2gu2")]
+[node name="BrickWall" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(7868, -602)
 scale = Vector2(4, 39.4219)
 polygon = PackedVector2Array(33, 31.7083, -31, 31.7083, -31, -31.8097, 33, -31.8097)
 
-[node name="Polygon2D7" parent="." instance=ExtResource("6_o2gu2")]
+[node name="TreeBig" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(8720, -602)
 scale = Vector2(4, 39.4219)
 polygon = PackedVector2Array(503, 31.9112, 499, -63.0614, 151, -101.822, 191, -100.401, 500.319, -69.1899, 479, -128.203, 495, -123.13, 523.417, -90.7495, 657, -114.809, 699, -118.665, 537, -79.2961, 551, -64.0761, 556.749, -48.7314, 815, -68.7436, 875, -71.3817, 563.2, -41.9564, 577, 5.32699, 595, 31.7083)
