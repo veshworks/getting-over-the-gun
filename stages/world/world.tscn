@@ -109,7 +109,6 @@ polygon = PackedVector2Array(-1265, 985, -727, -4267, 7487, -4272, 7507, -4224, 
 [node name="CavernBigCeilingTop" parent="." instance=ExtResource("6_o2gu2")]
 texture_repeat = 2
 position = Vector2(2496, 407.99)
-scale = Vector2(4, 4)
 texture = ExtResource("13_cr6lu")
 texture_offset = Vector2(200, 500)
 polygon = PackedVector2Array(-688, -630, -637, -4719.75, 916, -2006, 802, -630)
