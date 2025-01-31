@@ -1,12 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://clmmyo7s7b3md"]
+[gd_scene load_steps=8 format=3 uid="uid://clmmyo7s7b3md"]
 
 [ext_resource type="Script" path="res://entities/game_state/game_state.gd" id="1_h6sh5"]
 [ext_resource type="Script" path="res://entities/game_state/restart_detector.gd" id="2_am0ww"]
 [ext_resource type="Script" path="res://entities/game_state/restart.gd" id="3_onk6o"]
 [ext_resource type="Script" path="res://modules/UI/components/component_anti_spam.gd" id="4_uwx2h"]
+[ext_resource type="Script" path="res://entities/game_state/quick_restart.gd" id="5_n0sv5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1us72"]
 font_size = 18
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh50h"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="GameState" type="Node"]
 script = ExtResource("1_h6sh5")
@@ -50,3 +54,25 @@ script = ExtResource("3_onk6o")
 [node name="ComponentAntiSpam" type="Node" parent="RestartDetector/CanvasLayer/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/Restart"]
 process_mode = 3
 script = ExtResource("4_uwx2h")
+
+[node name="QuickRestart" type="Node" parent="."]
+script = ExtResource("5_n0sv5")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="QuickRestart"]
+layer = 10
+visible = false
+
+[node name="Panel" type="Panel" parent="QuickRestart/CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_kh50h")
+
+[node name="Timer" type="Timer" parent="QuickRestart"]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="QuickRestart/Timer" to="QuickRestart" method="_on_timer_timeout"]

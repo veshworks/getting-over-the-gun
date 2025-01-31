@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CreditsContent" load_steps=18 format=3 uid="uid://dgisfqm8b8ui"]
+[gd_resource type="Resource" script_class="CreditsContent" load_steps=19 format=3 uid="uid://dgisfqm8b8ui"]
 
 [ext_resource type="Script" path="res://modules/UI/credits_roll/credtis_content.gd" id="1_le8rw"]
 [ext_resource type="Script" path="res://modules/UI/credits_roll/credits_block.gd" id="2_ywvk1"]
@@ -52,7 +52,7 @@ jobs = Array[String](["Play Test"])
 
 [sub_resource type="Resource" id="Resource_g70nu"]
 script = ExtResource("3_xgor2")
-name = "Doka"
+name = "Marcy"
 jobs = Array[String](["Play Test"])
 
 [sub_resource type="Resource" id="Resource_y7ho1"]
@@ -70,11 +70,16 @@ script = ExtResource("3_xgor2")
 name = "Kenney"
 jobs = Array[String](["Input Icons Assets"])
 
+[sub_resource type="Resource" id="Resource_6rux6"]
+script = ExtResource("3_xgor2")
+name = "PbmnLuv"
+jobs = Array[String]([])
+
 [sub_resource type="Resource" id="Resource_3768n"]
 script = ExtResource("2_ywvk1")
 type = 0
 title = "Special Thanks"
-members = Array[ExtResource("3_xgor2")]([SubResource("Resource_jk2lj"), SubResource("Resource_rhtti"), SubResource("Resource_oa4i0"), SubResource("Resource_ytj5s"), SubResource("Resource_6scoy"), SubResource("Resource_nnniy"), SubResource("Resource_g70nu"), SubResource("Resource_y7ho1"), SubResource("Resource_7qt46"), SubResource("Resource_hex0k")])
+members = Array[ExtResource("3_xgor2")]([SubResource("Resource_jk2lj"), SubResource("Resource_rhtti"), SubResource("Resource_oa4i0"), SubResource("Resource_ytj5s"), SubResource("Resource_6scoy"), SubResource("Resource_nnniy"), SubResource("Resource_g70nu"), SubResource("Resource_y7ho1"), SubResource("Resource_7qt46"), SubResource("Resource_hex0k"), SubResource("Resource_6rux6")])
 
 [resource]
 script = ExtResource("1_le8rw")

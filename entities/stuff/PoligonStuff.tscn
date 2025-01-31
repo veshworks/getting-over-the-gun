@@ -12,15 +12,15 @@ script = ExtResource("1_lgv15")
 
 [node name="Minimap" type="Polygon2D" parent="."]
 unique_name_in_owner = true
-visibility_layer = 2
+visibility_layer = 3
 z_index = -10
 polygon = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)
 script = ExtResource("2_ssvlu")
 minimap_material = null
 
 [node name="PoligonStuff" type="StaticBody2D" parent="."]
-visible = false
 
 [node name="Collider" type="CollisionPolygon2D" parent="PoligonStuff"]
 unique_name_in_owner = true
+visible = false
 polygon = PackedVector2Array(32, 32, -32, 32, -32, -32, 32, -32)

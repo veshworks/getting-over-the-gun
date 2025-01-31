@@ -28,7 +28,7 @@ static func go_back(index: int = -1):
 	
 	var cur_index = SceneManager.singleton.current_cursor
 	var cur_history_entry = SceneManager.singleton.history[cur_index]
-	SceneManager.singleton.payloads = cur_history_entry.payloads
+	SceneManager.singleton.payloads = cur_history_entry.payloads.duplicate(true)
 	SceneManager.singleton.update_current_view()
 
 static func get_current_stage() -> Node:

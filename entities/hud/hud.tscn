@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://c25myhtldtedb"]
+[gd_scene load_steps=19 format=3 uid="uid://c25myhtldtedb"]
 
 [ext_resource type="Script" path="res://entities/hud/hud.gd" id="1_iwr0u"]
 [ext_resource type="LabelSettings" uid="uid://c26e5hdbirjku" path="res://entities/hud/hud_label_settings.tres" id="2_mpref"]
@@ -11,8 +11,9 @@
 [ext_resource type="Script" path="res://entities/hud/tutorial.gd" id="6_e5lj2"]
 [ext_resource type="Script" path="res://entities/hud/idle_detection.gd" id="6_rolw8"]
 [ext_resource type="Texture2D" uid="uid://bkarooo5gh5i7" path="res://entities/hud/keyboard_d.svg" id="7_48ial"]
+[ext_resource type="Script" path="res://entities/hud/difficult_display.gd" id="7_ukqlf"]
 [ext_resource type="Texture2D" uid="uid://b8qjg336lsx31" path="res://entities/hud/keyboard_r.svg" id="8_we5at"]
-[ext_resource type="Texture2D" uid="uid://dxyby3avjiepu" path="res://entities/hud/keyboard_escape.svg" id="9_x7mup"]
+[ext_resource type="Texture2D" uid="uid://fsp2v0gifkgo" path="res://assets/input_prompts/keyboard_p.svg" id="14_4ltud"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xivm6"]
 bg_color = Color(0, 0, 0, 0.392157)
@@ -152,6 +153,13 @@ label_settings = ExtResource("2_mpref")
 horizontal_alignment = 2
 script = ExtResource("6_rolw8")
 
+[node name="DifficultDisplay" type="Label" parent="Debug/VBoxContainer"]
+layout_mode = 2
+text = "0:0"
+label_settings = ExtResource("2_mpref")
+horizontal_alignment = 2
+script = ExtResource("7_ukqlf")
+
 [node name="Tutorial" type="PanelContainer" parent="."]
 material = SubResource("ShaderMaterial_2fsvf")
 anchors_preset = 2
@@ -221,7 +229,7 @@ layout_mode = 2
 
 [node name="TextureRect5" type="TextureRect" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer4"]
 layout_mode = 2
-texture = ExtResource("9_x7mup")
+texture = ExtResource("14_4ltud")
 
 [node name="Label5" type="Label" parent="Tutorial/MarginContainer4/HBoxContainer/HBoxContainer4"]
 layout_mode = 2

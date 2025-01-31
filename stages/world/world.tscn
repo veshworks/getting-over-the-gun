@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=22 format=3 uid="uid://btmi35wugb25k"]
 
 [ext_resource type="PackedScene" uid="uid://clmmyo7s7b3md" path="res://entities/game_state/game_state.tscn" id="1_2oati"]
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
@@ -12,9 +12,12 @@
 [ext_resource type="PackedScene" uid="uid://dkdjyg0bt6cxr" path="res://entities/menu_pause/menu_pause.tscn" id="7_e7lw4"]
 [ext_resource type="PackedScene" uid="uid://crwp57fyvtah8" path="res://entities/finish_pole/finish_pole.tscn" id="9_yvkgl"]
 [ext_resource type="Texture2D" uid="uid://bncqep4ekfw5l" path="res://assets/white_pixel.png" id="12_q56fx"]
+[ext_resource type="Texture2D" uid="uid://ciu4kj83pd3dm" path="res://entities/stuff/texture_cave.png" id="13_cr6lu"]
 [ext_resource type="Script" path="res://entities/hud/minimap_visual.gd" id="13_xwoln"]
 [ext_resource type="Texture2D" uid="uid://5rodiouboce4" path="res://entities/stuff/boulder.png" id="14_01niy"]
 [ext_resource type="Texture2D" uid="uid://bqgpmywwo7rj" path="res://entities/stuff/dead_tree.png" id="15_w1304"]
+[ext_resource type="Texture2D" uid="uid://diggyvyajrxxu" path="res://stages/world/monsterpedradeath.webp" id="16_0b71j"]
+[ext_resource type="Texture2D" uid="uid://cdsotabibwn65" path="res://entities/stuff/bgtexture.png" id="18_e3c7t"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6lh7"]
 normal = Vector2(1, 0)
@@ -94,8 +97,10 @@ script = ExtResource("13_xwoln")
 minimap_material = null
 
 [node name="CavernBoulderHole" parent="." instance=ExtResource("6_o2gu2")]
-position = Vector2(662, 528)
+texture_repeat = 2
+position = Vector2(662, 527)
 scale = Vector2(0.5, 4)
+texture = ExtResource("13_cr6lu")
 polygon = PackedVector2Array(32, 32, -32, 32, -694, 31.5, -806, 33, -1408, 32.75, -1336, -157, -792, -128.25, -690, -113.75, -510, -94.5, -482, -27.75, -442, 26.5, -356, 26.5, -318, -27.75, -288, -94, 30, -124, 100, -114.5, 230, -52.5, 364, 30.75, 274, 31)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="CavernBoulderHole"]
@@ -109,6 +114,7 @@ position = Vector2(-142.599, 371.122)
 rotation = -3.07906
 scale = Vector2(1.97945, 1.97945)
 texture = ExtResource("14_01niy")
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CavernBoulderHole/StaticBody2D"]
 position = Vector2(-12.5995, -3.87793)
@@ -119,24 +125,49 @@ one_way_collision = true
 position = Vector2(1533, 660)
 scale = Vector2(4, 4)
 
-[node name="CavernBigCeiling" parent="." instance=ExtResource("6_o2gu2")]
+[node name="CavernBigCeilingBottom" parent="." instance=ExtResource("6_o2gu2")]
+texture_repeat = 2
 position = Vector2(2496, 408)
-polygon = PackedVector2Array(112, 42, -32, 42, -200, -196, -659, -850, -637, -4719.75, 916, -2006, 802, -554)
+texture = ExtResource("13_cr6lu")
+texture_offset = Vector2(200, 500)
+polygon = PackedVector2Array(112, 42, -32, 42, -200, -196, -462.781, -570.42, -688, -630, 802, -630, 802, -554)
 
-[node name="CavernRamp" parent="." instance=ExtResource("6_o2gu2")]
-position = Vector2(3795, 20)
-scale = Vector2(4.34389, 19.875)
+[node name="CavernBigCeilingTop" parent="." instance=ExtResource("6_o2gu2")]
+texture_repeat = 2
+position = Vector2(2496, 408)
+texture = ExtResource("13_cr6lu")
+texture_offset = Vector2(200, 500)
+polygon = PackedVector2Array(-688, -630, -637, -4719.75, 916, -2006, 802, -630)
+
+[node name="Monsterpedradeath" type="Sprite2D" parent="."]
+position = Vector2(5282, -169)
+scale = Vector2(3.45, 3.45)
+texture = ExtResource("16_0b71j")
+
+[node name="CavernRamp" parent="Monsterpedradeath" instance=ExtResource("6_o2gu2")]
+position = Vector2(-431.014, 54.7826)
+scale = Vector2(1.2591, 5.76087)
 polygon = PackedVector2Array(292.134, 32, -50.4156, 32.4025, 283.617, -31.7987, 312.393, -32, 448.676, -32, 448.676, -21.5346, 312.393, -21.5346, 312.393, -13.8868, 319.76, -13.4843, 321.601, -9.86164, 319.76, -5.43396, 316.076, -1.00629, 306.868, 2.21384, 295.818, 2.21384, 295.818, 6.64151)
 
-[node name="CavernEntrance" parent="." instance=ExtResource("6_o2gu2")]
+[node name="CavernEntranceFloor" parent="Monsterpedradeath" instance=ExtResource("6_o2gu2")]
+position = Vector2(273.044, 171.884)
+scale = Vector2(10.3623, 2.49953)
+polygon = PackedVector2Array(15.6643, 26.6024, -32.4476, 26.4458, -32, -32, -21.035, -32)
+
+[node name="CavernEntranceBot" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6904, -1704)
 scale = Vector2(4, 42)
-polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.9524, -405.5, 37.0476, -405.25, 35.8095, -409, 34.8571, -420, 32.7619, -256, 32.9524, -206, 20.381, -262, 11.8095, -354, 5.52381, -518, 15.4286, -300, -2.47619, -186, -140.762, 184, -52, 220, -20.381, 60, -20.381, 30, -17.3333, 14, 38.8571)
+polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.9524, -405.5, 37.0476, -405.25, 35.8095, -409, 34.8571, -420, 32.7619, -256, 32.9524, -206, 20.381, -262, 11.8095, -354, 5.52381, -518, 15.4286, -300, -2.47619, 26, -2.09524, 14, 38.8571)
 
-[node name="CavernEntranceFloor" parent="." instance=ExtResource("6_o2gu2")]
-position = Vector2(6224, 424)
-scale = Vector2(35.75, 8.62338)
-polygon = PackedVector2Array(15.6643, 26.6024, -32.4476, 26.4458, -32, -32, -21.035, -32)
+[node name="CavernEntranceTop" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(6904, -1704)
+scale = Vector2(4, 42)
+polygon = PackedVector2Array(-300, -2.47619, -300, -9.90476, -258, -58.2857, 146, -60.9524, 184, -52, 220, -20.381, 60, -20.381, 30, -17.3333, 26, -2.09524)
+
+[node name="CavernEntranceTop2" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(7164, -4193)
+scale = Vector2(4, 42)
+polygon = PackedVector2Array(-323, 0.976189, -251, -81.5, 81, -1.69048)
 
 [node name="BrickWall" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(7868, -602)
@@ -154,3 +185,10 @@ position = Vector2(546.5, 31.7083)
 scale = Vector2(1.88375, 0.191137)
 texture = ExtResource("15_w1304")
 offset = Vector2(-17.98, -417.035)
+
+[node name="bgtexture" type="Polygon2D" parent="."]
+z_index = -12
+texture_repeat = 2
+color = Color(0.707967, 0.707967, 0.707967, 1)
+texture = ExtResource("18_e3c7t")
+polygon = PackedVector2Array(-1265, 985, -718, -2775, 5808, -2585, 6855, -168, 6931, 859)

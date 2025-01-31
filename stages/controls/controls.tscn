@@ -1,0 +1,181 @@
+[gd_scene load_steps=23 format=3 uid="uid://bbe3d7ur82kli"]
+
+[ext_resource type="Texture2D" uid="uid://cc5bkxoj2m6fq" path="res://assets/input_prompts/keyboard_a.svg" id="1_781wb"]
+[ext_resource type="Texture2D" uid="uid://dfieh13xigaf8" path="res://assets/input_prompts/keyboard_d.svg" id="2_v0ueu"]
+[ext_resource type="Texture2D" uid="uid://045am7dw0ir2" path="res://assets/input_prompts/keyboard_arrow_left.svg" id="3_cig2o"]
+[ext_resource type="Texture2D" uid="uid://cn81u5nbkgufd" path="res://assets/input_prompts/keyboard_arrow_right.svg" id="4_fimk0"]
+[ext_resource type="Texture2D" uid="uid://dfnnm3tu4ng0q" path="res://assets/input_prompts/switch_stick_l_horizontal.svg" id="5_47lg0"]
+[ext_resource type="Texture2D" uid="uid://c705c8mpn3lbi" path="res://assets/input_prompts/switch_dpad_horizontal.svg" id="6_bu0sr"]
+[ext_resource type="Texture2D" uid="uid://ceqjmp7ttul21" path="res://assets/input_prompts/mouse_left.svg" id="7_baln5"]
+[ext_resource type="Texture2D" uid="uid://docokyr8i2txw" path="res://assets/input_prompts/keyboard_j.svg" id="8_u8gi6"]
+[ext_resource type="Texture2D" uid="uid://bf5i4xkxmpan3" path="res://assets/input_prompts/keyboard_k.svg" id="9_m02er"]
+[ext_resource type="Texture2D" uid="uid://bklp8h7qo0b70" path="res://assets/input_prompts/keyboard_x.svg" id="10_je2kq"]
+[ext_resource type="Texture2D" uid="uid://dmbgartooqljn" path="res://assets/input_prompts/xbox_rt.svg" id="11_0uje2"]
+[ext_resource type="Texture2D" uid="uid://cu1atf5tkc2ib" path="res://assets/input_prompts/switch_buttons_down.svg" id="12_lhfvs"]
+[ext_resource type="Texture2D" uid="uid://ddjmwevjukuwh" path="res://assets/input_prompts/keyboard_r.svg" id="13_2ixy5"]
+[ext_resource type="Texture2D" uid="uid://c5va1okuhfqna" path="res://assets/input_prompts/keyboard_z.svg" id="14_fxpws"]
+[ext_resource type="Texture2D" uid="uid://4o5pqf5n4ui6" path="res://assets/input_prompts/switch_buttons_left.svg" id="15_puull"]
+[ext_resource type="Texture2D" uid="uid://fsp2v0gifkgo" path="res://assets/input_prompts/keyboard_p.svg" id="16_nm4m3"]
+[ext_resource type="Texture2D" uid="uid://2qrp1x7o8rh1" path="res://assets/input_prompts/keyboard_escape.svg" id="17_hpevn"]
+[ext_resource type="Texture2D" uid="uid://ngwi8hg2tk51" path="res://assets/input_prompts/xbox_button_menu.svg" id="18_oj7pw"]
+[ext_resource type="Texture2D" uid="uid://bdb64dj6g7xdf" path="res://assets/input_prompts/keyboard_shift.svg" id="19_q4nsr"]
+[ext_resource type="Texture2D" uid="uid://cwd82brbosi3r" path="res://assets/input_prompts/switch_buttons_up.svg" id="20_66sip"]
+[ext_resource type="Script" path="res://modules/UI/scenes/button_scene_changer.gd" id="21_nhfxh"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_6er20"]
+font_size = 32
+outline_size = 4
+outline_color = Color(0, 0, 0, 0.890196)
+
+[node name="Controls" type="CanvasLayer"]
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="CenterContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Rotate the Gun"
+label_settings = SubResource("LabelSettings_6er20")
+horizontal_alignment = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("1_781wb")
+
+[node name="TextureRect5" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_v0ueu")
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_cig2o")
+
+[node name="TextureRect6" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("4_fimk0")
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_47lg0")
+
+[node name="TextureRect4" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("6_bu0sr")
+
+[node name="Label2" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Shoot the Gun
+"
+label_settings = SubResource("LabelSettings_6er20")
+horizontal_alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("7_baln5")
+
+[node name="TextureRect5" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("8_u8gi6")
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("9_m02er")
+
+[node name="TextureRect6" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("10_je2kq")
+
+[node name="TextureRect3" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("11_0uje2")
+
+[node name="TextureRect4" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("12_lhfvs")
+
+[node name="Label3" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Nudge the Gun
+"
+label_settings = SubResource("LabelSettings_6er20")
+horizontal_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("13_2ixy5")
+
+[node name="TextureRect5" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("14_fxpws")
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer3"]
+layout_mode = 2
+texture = ExtResource("15_puull")
+
+[node name="Label4" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Pause Game"
+label_settings = SubResource("LabelSettings_6er20")
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("16_nm4m3")
+
+[node name="TextureRect5" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("17_hpevn")
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer4"]
+layout_mode = 2
+texture = ExtResource("18_oj7pw")
+
+[node name="Label5" type="Label" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Quick Restart"
+label_settings = SubResource("LabelSettings_6er20")
+horizontal_alignment = 2
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("19_q4nsr")
+
+[node name="TextureRect2" type="TextureRect" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer/HBoxContainer5"]
+layout_mode = 2
+texture = ExtResource("20_66sip")
+
+[node name="ButtonSceneChanger" type="Button" parent="CenterContainer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Back"
+script = ExtResource("21_nhfxh")
+go_back = true
