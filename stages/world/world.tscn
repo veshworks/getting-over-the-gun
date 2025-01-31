@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://btmi35wugb25k"]
+[gd_scene load_steps=28 format=3 uid="uid://btmi35wugb25k"]
 
 [ext_resource type="PackedScene" uid="uid://clmmyo7s7b3md" path="res://entities/game_state/game_state.tscn" id="1_2oati"]
 [ext_resource type="PackedScene" uid="uid://cugdua0d2i31v" path="res://entities/background/background.tscn" id="1_cym6x"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://dwjch37827nkm" path="res://entities/stuff/PoligonStuff.tscn" id="6_o2gu2"]
 [ext_resource type="PackedScene" uid="uid://dkdjyg0bt6cxr" path="res://entities/menu_pause/menu_pause.tscn" id="7_e7lw4"]
 [ext_resource type="PackedScene" uid="uid://crwp57fyvtah8" path="res://entities/finish_pole/finish_pole.tscn" id="9_yvkgl"]
+[ext_resource type="Texture2D" uid="uid://bwh0osq70mc3s" path="res://stages/world/pedrasgemeas.png" id="12_hqnyy"]
+[ext_resource type="Texture2D" uid="uid://nygel35bw2bm" path="res://stages/world/upperuppercave.png" id="12_jdhx2"]
 [ext_resource type="Texture2D" uid="uid://bncqep4ekfw5l" path="res://assets/white_pixel.png" id="12_q56fx"]
 [ext_resource type="Texture2D" uid="uid://ciu4kj83pd3dm" path="res://entities/stuff/texture_cave.png" id="13_cr6lu"]
 [ext_resource type="Script" path="res://entities/hud/minimap_visual.gd" id="13_xwoln"]
@@ -18,6 +20,10 @@
 [ext_resource type="Texture2D" uid="uid://bqgpmywwo7rj" path="res://entities/stuff/dead_tree.png" id="15_w1304"]
 [ext_resource type="Texture2D" uid="uid://diggyvyajrxxu" path="res://stages/world/monsterpedradeath.webp" id="16_0b71j"]
 [ext_resource type="Texture2D" uid="uid://cdsotabibwn65" path="res://entities/stuff/bgtexture.png" id="18_e3c7t"]
+[ext_resource type="Texture2D" uid="uid://haepva4tnwb1" path="res://stages/world/upperbottomcavernentrance.png" id="18_pq3dx"]
+[ext_resource type="Texture2D" uid="uid://d1yesq0s45vy6" path="res://stages/world/bigceilingbot.png" id="18_sydqi"]
+[ext_resource type="Texture2D" uid="uid://cqqthtvavnh48" path="res://stages/world/parede_tijolinho.webp" id="19_37asj"]
+[ext_resource type="Texture2D" uid="uid://cbwm7hf8vwi1c" path="res://stages/world/entrancebot.png" id="22_v8pd0"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_c6lh7"]
 normal = Vector2(1, 0)
@@ -53,9 +59,6 @@ target = NodePath("../Camera2D")
 [node name="FinishPole" parent="." node_paths=PackedStringArray("win_layer") instance=ExtResource("9_yvkgl")]
 position = Vector2(14232, 647)
 win_layer = NodePath("../MenuWin")
-
-[node name="Floor" parent="." instance=ExtResource("1_m4gmm")]
-position = Vector2(0, 647)
 
 [node name="Player" parent="." node_paths=PackedStringArray("background") instance=ExtResource("2_kikoq")]
 position = Vector2(468, 402)
@@ -96,6 +99,31 @@ offset = Vector2(0.5, 0)
 script = ExtResource("13_xwoln")
 minimap_material = null
 
+[node name="bgtexture" type="Polygon2D" parent="."]
+z_index = -12
+texture_repeat = 2
+color = Color(0.707967, 0.707967, 0.707967, 1)
+texture = ExtResource("18_e3c7t")
+polygon = PackedVector2Array(-1265, 985, -727, -4267, 7487, -4272, 7507, -4224, 7031, -2524, 6995, -1439, 6815, -142, 6955, -76, 6885, -64, 6861, -8, 6839, 136, 6859.73, 243.951, 6931, 859)
+
+[node name="CavernBigCeilingTop" parent="." instance=ExtResource("6_o2gu2")]
+texture_repeat = 2
+position = Vector2(2496, 407.99)
+scale = Vector2(4, 4)
+texture = ExtResource("13_cr6lu")
+texture_offset = Vector2(200, 500)
+polygon = PackedVector2Array(-688, -630, -637, -4719.75, 916, -2006, 802, -630)
+
+[node name="CavernEntranceTop2" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(7164, -4193)
+scale = Vector2(4, 42)
+polygon = PackedVector2Array(-323, 0.976189, -251, -81.5, 81, -1.69048)
+
+[node name="Upperuppercave" type="Sprite2D" parent="."]
+position = Vector2(3628, -10274)
+scale = Vector2(4.75, 4.75)
+texture = ExtResource("12_jdhx2")
+
 [node name="CavernBoulderHole" parent="." instance=ExtResource("6_o2gu2")]
 texture_repeat = 2
 position = Vector2(662, 527)
@@ -121,6 +149,10 @@ position = Vector2(-12.5995, -3.87793)
 shape = SubResource("RectangleShape2D_2wkh7")
 one_way_collision = true
 
+[node name="Pedrasgemeas" type="Sprite2D" parent="."]
+position = Vector2(402, 277)
+texture = ExtResource("12_hqnyy")
+
 [node name="CavernBush" parent="." instance=ExtResource("4_xfrrw")]
 position = Vector2(1533, 660)
 scale = Vector2(4, 4)
@@ -132,47 +164,56 @@ texture = ExtResource("13_cr6lu")
 texture_offset = Vector2(200, 500)
 polygon = PackedVector2Array(112, 42, -32, 42, -200, -196, -462.781, -570.42, -688, -630, 802, -630, 802, -554)
 
-[node name="CavernBigCeilingTop" parent="." instance=ExtResource("6_o2gu2")]
-texture_repeat = 2
-position = Vector2(2496, 408)
-texture = ExtResource("13_cr6lu")
-texture_offset = Vector2(200, 500)
-polygon = PackedVector2Array(-688, -630, -637, -4719.75, 916, -2006, 802, -630)
+[node name="Bigceilingbot" type="Sprite2D" parent="."]
+position = Vector2(2727, -764)
+scale = Vector2(4, 4)
+texture = ExtResource("18_sydqi")
+
+[node name="CavernRamp" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(3795, 20)
+scale = Vector2(4.34389, 19.875)
+polygon = PackedVector2Array(292.134, 32, -50.4156, 32.4025, 283.617, -31.7987, 312.393, -32, 448.676, -32, 448.676, -21.5346, 312.393, -21.5346, 312.393, -13.8868, 319.76, -13.4843, 321.601, -9.86164, 319.76, -5.43396, 316.076, -1.00629, 306.868, 2.21384, 295.818, 2.21384, 295.818, 6.64151)
+
+[node name="CavernEntranceFloor" parent="." instance=ExtResource("6_o2gu2")]
+position = Vector2(6224, 424)
+scale = Vector2(35.7499, 8.62338)
+polygon = PackedVector2Array(15.6643, 26.6024, -32.4476, 26.4458, -32, -32, -21.035, -32)
 
 [node name="Monsterpedradeath" type="Sprite2D" parent="."]
 position = Vector2(5282, -169)
 scale = Vector2(3.45, 3.45)
 texture = ExtResource("16_0b71j")
 
-[node name="CavernRamp" parent="Monsterpedradeath" instance=ExtResource("6_o2gu2")]
-position = Vector2(-431.014, 54.7826)
-scale = Vector2(1.2591, 5.76087)
-polygon = PackedVector2Array(292.134, 32, -50.4156, 32.4025, 283.617, -31.7987, 312.393, -32, 448.676, -32, 448.676, -21.5346, 312.393, -21.5346, 312.393, -13.8868, 319.76, -13.4843, 321.601, -9.86164, 319.76, -5.43396, 316.076, -1.00629, 306.868, 2.21384, 295.818, 2.21384, 295.818, 6.64151)
-
-[node name="CavernEntranceFloor" parent="Monsterpedradeath" instance=ExtResource("6_o2gu2")]
-position = Vector2(273.044, 171.884)
-scale = Vector2(10.3623, 2.49953)
-polygon = PackedVector2Array(15.6643, 26.6024, -32.4476, 26.4458, -32, -32, -21.035, -32)
-
 [node name="CavernEntranceBot" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(6904, -1704)
-scale = Vector2(4, 42)
+scale = Vector2(3.99999, 42)
 polygon = PackedVector2Array(-248, 37.9048, -358, 40, -398, 42.0952, -414, 42.0952, -418, 41.5238, -412, 40.5714, -408, 38.9524, -405.5, 37.0476, -405.25, 35.8095, -409, 34.8571, -420, 32.7619, -256, 32.9524, -206, 20.381, -262, 11.8095, -354, 5.52381, -518, 15.4286, -300, -2.47619, 26, -2.09524, 14, 38.8571)
 
+[node name="Entrancebot" type="Sprite2D" parent="."]
+position = Vector2(5930, -870)
+scale = Vector2(2.24, 2.24)
+texture = ExtResource("22_v8pd0")
+
 [node name="CavernEntranceTop" parent="." instance=ExtResource("6_o2gu2")]
+visibility_layer = 2
 position = Vector2(6904, -1704)
-scale = Vector2(4, 42)
+scale = Vector2(4.00001, 42.0001)
 polygon = PackedVector2Array(-300, -2.47619, -300, -9.90476, -258, -58.2857, 146, -60.9524, 184, -52, 220, -20.381, 60, -20.381, 30, -17.3333, 26, -2.09524)
 
-[node name="CavernEntranceTop2" parent="." instance=ExtResource("6_o2gu2")]
-position = Vector2(7164, -4193)
-scale = Vector2(4, 42)
-polygon = PackedVector2Array(-323, 0.976189, -251, -81.5, 81, -1.69048)
+[node name="Upperbottomcavernentrance" type="Sprite2D" parent="."]
+position = Vector2(6748, -3028)
+scale = Vector2(2.98544, 2.98544)
+texture = ExtResource("18_pq3dx")
 
 [node name="BrickWall" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(7868, -602)
-scale = Vector2(4, 39.4219)
+scale = Vector2(4, 39.4218)
 polygon = PackedVector2Array(33, 31.7083, -31, 31.7083, -31, -31.8097, 33, -31.8097)
+
+[node name="ParedeTijolinho" type="Sprite2D" parent="."]
+position = Vector2(7893, -626)
+scale = Vector2(3.45, 3.45)
+texture = ExtResource("19_37asj")
 
 [node name="TreeBig" parent="." instance=ExtResource("6_o2gu2")]
 position = Vector2(8720, -602)
@@ -186,9 +227,5 @@ scale = Vector2(1.88375, 0.191137)
 texture = ExtResource("15_w1304")
 offset = Vector2(-17.98, -417.035)
 
-[node name="bgtexture" type="Polygon2D" parent="."]
-z_index = -12
-texture_repeat = 2
-color = Color(0.707967, 0.707967, 0.707967, 1)
-texture = ExtResource("18_e3c7t")
-polygon = PackedVector2Array(-1265, 985, -718, -2775, 5808, -2585, 6855, -168, 6931, 859)
+[node name="Floor" parent="." instance=ExtResource("1_m4gmm")]
+position = Vector2(0, 647)

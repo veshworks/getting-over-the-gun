@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://usojqqptaxv0"]
 
-[ext_resource type="Shader" uid="uid://cm3hlu2nhb7p2" path="res://entities/hud/all_white_shader.tres" id="1_nv53s"]
+[ext_resource type="Shader" path="res://entities/hud/all_white_material.gdshader" id="1_q7u0a"]
 
 [resource]
-shader = ExtResource("1_nv53s")
+shader = ExtResource("1_q7u0a")
